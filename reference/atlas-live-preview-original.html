@@ -1,0 +1,1761 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="no-referrer">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline' 'unsafe-eval' 'wasm-unsafe-eval' blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; style-src 'unsafe-inline' blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; img-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; font-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; media-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; worker-src blob:; connect-src blob: data:; frame-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<title>atlas-live-preview.html</title>
+<style>:root{color-scheme:light dark;background:light-dark(rgb(255 255 255), rgb(24 24 24))}html,body{margin:0}body{box-sizing:border-box;padding:1rem;background:inherit}iframe{display:block;width:100%;max-width:736px;height:calc(100vh - 2rem);margin:0 auto;border:0}</style>
+</head>
+<body>
+<iframe id="codex-visualization" sandbox="allow-scripts" scrolling="no" referrerpolicy="no-referrer" title="atlas-live-preview.html" data-srcdoc="&lt;!doctype html&gt;
+&lt;html lang=&quot;en-GB&quot;&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;utf-8&quot;&gt;
+&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
+&lt;meta name=&quot;referrer&quot; content=&quot;no-referrer&quot;&gt;
+&lt;meta http-equiv=&quot;Content-Security-Policy&quot; content=&quot;default-src 'none'; script-src 'unsafe-inline' 'unsafe-eval' 'wasm-unsafe-eval' blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; style-src 'unsafe-inline' blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; img-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; font-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; media-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; worker-src blob:; connect-src blob: data:; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'&quot;&gt;
+&lt;title&gt;atlas-live-preview.html&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;script&gt;(() =&gt; {
+  const root = document.documentElement;
+  const mediaQuery = globalThis.matchMedia(&quot;(prefers-color-scheme: dark)&quot;);
+  const apply = Reflect.apply;
+  const isArray = Array.isArray;
+  const parentWindow = globalThis.parent;
+  /**
+   * @param {object} prototype
+   * @param {string} property
+   */
+  const getPrototypeGetter = (prototype, property) =&gt; {
+    // oxlint-disable-next-line typescript/unbound-method -- invoked through captured Reflect.apply
+    const getter = Object.getOwnPropertyDescriptor(prototype, property)?.get;
+    if (getter == null) {
+      throw new Error(`Missing ${property} getter`);
+    }
+    return getter;
+  };
+  const getMessageData = getPrototypeGetter(MessageEvent.prototype, &quot;data&quot;);
+  const getMessagePorts = getPrototypeGetter(MessageEvent.prototype, &quot;ports&quot;);
+  const getMessageSource = getPrototypeGetter(MessageEvent.prototype, &quot;source&quot;);
+  // oxlint-disable-next-line typescript/unbound-method -- captured before the untrusted fragment runs
+  const addHostMessageListener = MessagePort.prototype.addEventListener;
+  // oxlint-disable-next-line typescript/unbound-method -- captured before the untrusted fragment runs
+  const postHostMessage = MessagePort.prototype.postMessage;
+  // oxlint-disable-next-line typescript/unbound-method -- captured before the untrusted fragment runs
+  const startHostPort = MessagePort.prototype.start;
+  // oxlint-disable-next-line typescript/unbound-method -- captured before the untrusted fragment runs
+  const stopMessagePropagation = Event.prototype.stopImmediatePropagation;
+  /** @type {MessagePort | null} */
+  let hostPort = null;
+  const postToHost = (type, payload) =&gt; {
+    if (hostPort != null) {
+      apply(postHostMessage, hostPort, [{ type, ...payload }]);
+    }
+  };
+  const openExternal = ({ href }) =&gt; {
+    if (globalThis.navigator.userActivation?.isActive === true) {
+      postToHost(&quot;open-external&quot;, { href });
+    }
+  };
+  const sendFollowUpMessage = ({ context, prompt, title }) =&gt; {
+    if (globalThis.navigator.userActivation?.isActive === true) {
+      postToHost(&quot;follow-up&quot;, { context, prompt, title });
+    }
+    return Promise.resolve();
+  };
+  const syncTheme = () =&gt; {
+    const theme = mediaQuery.matches ? &quot;dark&quot; : &quot;light&quot;;
+    root.dataset.theme = theme;
+    globalThis.openai = {
+      ...globalThis.openai,
+      openExternal,
+      sendFollowUpMessage,
+      theme,
+      visualizationStyleVariables: {},
+      visualizationTheme: theme,
+    };
+    globalThis.dispatchEvent(
+      new CustomEvent(&quot;openai:set_globals&quot;, {
+        detail: { globals: globalThis.openai },
+      }),
+    );
+  };
+  const sendHeight = () =&gt; {
+    postToHost(&quot;height&quot;, {
+      height: Math.ceil(
+        Math.max(
+          document.body.scrollHeight,
+          document.body.getBoundingClientRect().height,
+        ),
+      ),
+    });
+  };
+
+  globalThis.addEventListener(
+    &quot;message&quot;,
+    (event) =&gt; {
+      const data = apply(getMessageData, event, []);
+      const ports = apply(getMessagePorts, event, []);
+      const source = apply(getMessageSource, event, []);
+      if (
+        source !== parentWindow ||
+        typeof data !== &quot;object&quot; ||
+        data?.type !== &quot;codex-visualization-initialize&quot; ||
+        !isArray(ports) ||
+        ports.length !== 1
+      ) {
+        return;
+      }
+      apply(stopMessagePropagation, event, []);
+      const nextHostPort = ports[0];
+      try {
+        apply(addHostMessageListener, nextHostPort, [
+          &quot;message&quot;,
+          (event) =&gt; {
+            const data = apply(getMessageData, event, []);
+            if (typeof data === &quot;object&quot; &amp;&amp; data?.type === &quot;measure&quot;) {
+              sendHeight();
+            }
+          },
+        ]);
+        apply(startHostPort, nextHostPort, []);
+      } catch {
+        return;
+      }
+      hostPort = nextHostPort;
+      sendHeight();
+    },
+    { capture: true },
+  );
+  document.currentScript?.remove();
+  mediaQuery.addEventListener(&quot;change&quot;, syncTheme);
+  globalThis.addEventListener(&quot;click&quot;, (event) =&gt; {
+    if (event.defaultPrevented) {
+      return;
+    }
+    let element = null;
+    if (event.target instanceof globalThis.Element) {
+      element = event.target;
+    } else if (event.target instanceof globalThis.Node) {
+      element = event.target.parentElement;
+    }
+    const link = element?.closest(&quot;a[href]&quot;);
+    const href = link?.getAttribute(&quot;href&quot;);
+    if (href == null) {
+      return;
+    }
+    if (href.startsWith(&quot;#&quot;)) {
+      let id;
+      try {
+        id = decodeURIComponent(href.slice(1));
+      } catch {
+        return;
+      }
+      const target = id.length === 0 ? root : document.getElementById(id);
+      if (
+        target == null ||
+        globalThis.navigator.userActivation?.isActive !== true
+      ) {
+        return;
+      }
+      event.preventDefault();
+      postToHost(&quot;scroll-to&quot;, {
+        top: target.getBoundingClientRect().top + globalThis.scrollY,
+      });
+      return;
+    }
+    event.preventDefault();
+    openExternal({ href });
+  });
+  new ResizeObserver(sendHeight).observe(document.body);
+  syncTheme();
+})();
+&lt;/script&gt;
+&lt;style&gt;:root {
+  color-scheme: light dark;
+  background-color: var(
+    --background,
+    var(--color-background-primary, light-dark(rgb(255 255 255), rgb(24 24 24)))
+  ) !important;
+
+  /* Agent-facing contract; keep in sync with SKILL.md. */
+  --background: var(
+    --color-background-primary,
+    light-dark(rgb(255 255 255), rgb(24 24 24))
+  );
+  --foreground: var(
+    --color-text-primary,
+    light-dark(rgb(26 28 31), rgb(255 255 255))
+  );
+  --card: color-mix(in oklab, var(--foreground) 5%, var(--background));
+  --card-foreground: var(
+    --color-text-primary,
+    light-dark(rgb(26 28 31), rgb(255 255 255))
+  );
+  --popover: var(
+    --color-background-secondary,
+    light-dark(rgb(255 255 255), rgb(45 45 45))
+  );
+  --popover-foreground: var(
+    --color-text-primary,
+    light-dark(rgb(26 28 31), rgb(255 255 255))
+  );
+  --primary: var(
+    --color-text-info,
+    light-dark(rgb(51 156 255), rgb(131 195 255))
+  );
+  --primary-foreground: var(
+    --color-text-inverse,
+    light-dark(rgb(255 255 255), rgb(13 13 13))
+  );
+  --secondary: var(
+    --color-background-secondary,
+    light-dark(rgb(255 255 255 / 96%), rgb(54 54 54 / 96%))
+  );
+  --secondary-foreground: var(
+    --color-text-primary,
+    light-dark(rgb(26 28 31), rgb(255 255 255))
+  );
+  --muted: color-mix(in srgb, var(--foreground) 10%, transparent);
+  --muted-foreground: var(
+    --color-text-secondary,
+    light-dark(rgb(26 28 31 / 49.4%), rgb(255 255 255 / 49.8%))
+  );
+  --accent: var(
+    --color-background-info,
+    light-dark(rgb(229 242 255), rgb(13 39 63))
+  );
+  --accent-foreground: var(
+    --color-text-info,
+    light-dark(rgb(51 156 255), rgb(131 195 255))
+  );
+  --destructive: var(
+    --color-text-warning,
+    light-dark(rgb(226 85 7), rgb(255 133 73))
+  );
+  --border: var(
+    --color-border-secondary,
+    light-dark(rgb(26 28 31 / 8%), rgb(255 255 255 / 8.2%))
+  );
+  --input: var(
+    --color-border-primary,
+    light-dark(
+      rgb(26 28 31 / 11.8%),
+      color-mix(in oklab, rgb(0 0 0) 10%, transparent)
+    )
+  );
+  --ring: var(
+    --color-ring-primary,
+    light-dark(rgb(51 156 255), rgb(131 195 255 / 76%))
+  );
+  --font-size-base: var(--font-text-md-size, 14px);
+  --blue: light-dark(rgb(51 156 255), rgb(51 156 255));
+  --orange: light-dark(rgb(226 85 7), rgb(251 106 34));
+  --green: light-dark(rgb(0 162 64), rgb(64 201 119));
+  --red: light-dark(rgb(224 46 42), rgb(255 103 100));
+  --purple: light-dark(rgb(146 79 247), rgb(173 123 249));
+  --yellow: light-dark(rgb(255 195 0), rgb(255 210 64));
+  --viz-series-1: var(--primary);
+  --viz-series-2: light-dark(rgb(243 136 59), rgb(245 154 86));
+  --viz-series-3: light-dark(rgb(93 201 119), rgb(116 213 139));
+  --viz-series-4: light-dark(rgb(235 119 177), rgb(240 143 192));
+  --viz-series-5: light-dark(rgb(155 121 236), rgb(170 145 239));
+  --viz-series-6: light-dark(rgb(58 185 177), rgb(90 203 194));
+
+  /* Internal implementation variables; not part of the agent contract. */
+  --font-sans: -apple-system, system-ui, &quot;Segoe UI&quot;, sans-serif;
+  --font-mono:
+    ui-monospace, SFMono-Regular, &quot;SF Mono&quot;, Menlo, Consolas, &quot;Liberation Mono&quot;,
+    monospace;
+  --font-size-normal: max(11px, var(--font-size-base));
+  --font-size-tooltip: calc(var(--font-size-base) - 1px);
+  --font-size-small: max(11px, calc(var(--font-size-base) - 2px));
+  --font-size-h1: calc(var(--font-size-normal) * 1.7142857143);
+  --font-size-h2: calc(var(--font-size-normal) * 1.4285714286);
+  --font-size-h3: calc(var(--font-size-normal) * 1.2857142857);
+  --font-weight-normal: 430;
+  --font-weight-medium: 500;
+  --icon-size: 16px;
+  --line-height-normal: calc(var(--font-size-normal) * 1.5);
+  --line-height-tooltip: calc(var(--font-size-tooltip) * 1.4285714286);
+  --line-height-small: calc(var(--font-size-small) + 4px);
+  --corner-shape: round;
+  --radius: var(--border-radius-lg, 10px);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-2xl: calc(var(--radius) * 1.6);
+  --radius-full: 9999px;
+  --shadow-sm: 0 1px 2px -1px rgb(0 0 0 / 8%);
+  --checkmark-image: url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 17 17'%3E%3Cpath d='M12.8961 3.64101C13.1297 3.41418 13.4984 3.37523 13.7779 3.56581C14.0571 3.75635 14.1554 4.11331 14.0299 4.41347L13.9615 4.53847L7.71151 13.7045C7.59411 13.8767 7.4063 13.9877 7.19881 14.0072C6.99136 14.0267 6.78564 13.9533 6.63826 13.806L2.88826 10.056L2.79842 9.9457C2.6192 9.67407 2.64927 9.30496 2.88826 9.06581C3.12738 8.82669 3.49647 8.79676 3.76815 8.97597L3.8785 9.06581L7.03084 12.2182L12.8053 3.74941L12.8961 3.64101Z'/%3E%3C/svg%3E&quot;);
+
+  /* Legacy aliases; not part of the current agent contract. */
+  --viz-bg: transparent;
+  --viz-panel: var(--card);
+  --viz-border: var(--border);
+  --viz-text: var(--foreground);
+  --viz-muted: var(--muted-foreground);
+  --viz-accent: var(--primary);
+  --viz-accent-text: var(--primary-foreground);
+  --viz-accent-bg: var(--accent);
+  --viz-font-size: var(--font-size-base);
+  --viz-warning: var(--destructive);
+}
+
+:root[data-theme=&quot;light&quot;] {
+  color-scheme: light;
+}
+
+:root[data-theme=&quot;dark&quot;] {
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html &gt; body {
+  /* Preserve MCP aliases for older inline renderers without creating :root cycles. */
+  --color-background-primary: var(
+    --background,
+    light-dark(rgb(255 255 255), rgb(24 24 24))
+  );
+  --color-text-primary: var(
+    --foreground,
+    light-dark(rgb(26 28 31), rgb(255 255 255))
+  );
+  --color-border-secondary: var(
+    --border,
+    light-dark(rgb(26 28 31 / 8%), rgb(255 255 255 / 8.2%))
+  );
+
+  margin: 0;
+  padding: var(--visualize-paint-gutter, 0px);
+  color: var(--foreground);
+  background: transparent !important;
+  font-family: var(--font-sans) !important;
+  font-size: var(--font-size-normal);
+  font-weight: var(--font-weight-normal);
+  line-height: var(--line-height-normal);
+}
+
+a {
+  color: color-mix(in srgb, var(--viz-accent) 80%, var(--viz-text) 20%);
+  cursor: pointer;
+  font-weight: var(--font-weight-medium, 500);
+  text-decoration: none;
+  text-underline-offset: 2px;
+}
+
+a:is(:hover, :focus-visible) {
+  text-decoration-line: underline;
+  text-decoration-style: dashed;
+  text-decoration-thickness: 0.5px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin-block: 0;
+}
+
+h1 {
+  font-size: var(--font-size-h1);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.25;
+}
+
+h2 {
+  font-size: var(--font-size-h2);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.25;
+}
+
+h3,
+h4,
+h5,
+h6 {
+  font-size: var(--font-size-h3);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.3;
+}
+
+b,
+strong,
+th {
+  font-weight: var(--font-weight-medium);
+}
+
+code:not(pre code) {
+  display: inline;
+  padding: 1px 6px;
+  border-radius: var(--radius-sm);
+  corner-shape: var(--corner-shape);
+  background: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 0.92em;
+  overflow-wrap: anywhere;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  word-break: break-word;
+}
+
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+  scrollbar-width: thin;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  color: var(--foreground);
+  font: inherit;
+  text-align: start;
+}
+
+.table :is(th, td) {
+  padding-block: 10px;
+  padding-inline: 0 24px;
+  overflow-wrap: anywhere;
+  border-bottom: 1px solid var(--border);
+  text-align: start;
+  vertical-align: top;
+}
+
+.table-responsive &gt; .table :is(th, td) {
+  overflow-wrap: break-word;
+}
+
+.table :is(th, td):last-child {
+  padding-inline-end: 0;
+}
+
+.table :is(caption, thead th) {
+  font-weight: 600;
+}
+
+.table thead th {
+  padding-block: 8px;
+  border-bottom-color: color-mix(in srgb, var(--foreground) 16%, transparent);
+}
+
+.table tbody tr:last-child :is(th, td) {
+  border-bottom: 0;
+}
+
+.table.table-sm :is(th, td) {
+  padding-block: 6px;
+}
+
+.table.table-sm :is(th, td):not(:last-child) {
+  padding-inline-end: 16px;
+}
+
+.table :is(.text-end, [align=&quot;right&quot;]) {
+  text-align: end;
+  font-variant-numeric: tabular-nums;
+}
+
+.table :is(.text-center, [align=&quot;center&quot;]) {
+  text-align: center;
+}
+
+.table .text-nowrap {
+  white-space: nowrap;
+}
+
+#widget {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  padding: 0;
+  background: transparent !important;
+}
+
+.card {
+  min-width: 0;
+  padding: 12px;
+  overflow: hidden;
+  overflow-wrap: break-word;
+  border-radius: var(--radius-2xl);
+  corner-shape: var(--corner-shape);
+  color: var(--card-foreground);
+  background: var(--card);
+}
+
+#widget &gt; :not(.card, .progress) {
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.tooltip {
+  position: fixed;
+  z-index: 50;
+  top: 0;
+  left: 0;
+  width: max-content;
+  max-width: min(
+    20rem,
+    var(--tooltip-available-width, calc(100vw - 10px)),
+    calc(100vw - 10px)
+  );
+  max-height: min(
+    var(--tooltip-available-height, calc(100vh - 10px)),
+    calc(100vh - 10px)
+  );
+  padding: 4px 8px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  corner-shape: var(--corner-shape);
+  color: var(--popover-foreground);
+  background: var(--popover);
+  box-shadow: none;
+  font-size: var(--font-size-tooltip);
+  line-height: var(--line-height-tooltip);
+  overflow-wrap: break-word;
+  white-space: normal;
+  pointer-events: none;
+  user-select: none;
+}
+
+.viz-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(max(180px, 24%), 1fr));
+  gap: 10px;
+}
+
+.viz-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.viz-stat-value {
+  font-size: var(--font-size-h2);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.25;
+}
+
+.viz-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+hr {
+  width: 100%;
+  height: 1px;
+  margin-block: 6px;
+  border: 0;
+  background: var(--border);
+}
+
+.nav {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  gap: 4px;
+}
+
+.progress {
+  display: flex;
+  height: 8px;
+  margin-block: calc((var(--line-height-normal, 1.5em) - 8px) / 2);
+  overflow: hidden;
+  border: 0;
+  border-radius: var(--radius-full);
+  background: var(--muted);
+}
+
+.progress-bar:only-child {
+  border-radius: var(--radius-full);
+}
+
+.progress-bar {
+  height: 100%;
+  flex-shrink: 0;
+  border: 0;
+  background: var(--viz-series-1);
+}
+
+.viz-badge {
+  padding: 3px 8px;
+  border-radius: var(--radius-full);
+  color: var(--accent-foreground);
+  background: var(--accent);
+  font-weight: var(--font-weight-medium);
+}
+
+small,
+.text-small,
+.viz-badge {
+  font-size: var(--font-size-small);
+  line-height: var(--line-height-small);
+}
+
+.text-muted {
+  color: var(--muted-foreground);
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.viz-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.viz-controls &gt; .form-label {
+  display: grid;
+  min-width: min(100%, 260px);
+  flex: 1 1 280px;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: baseline;
+  gap: 2px 12px;
+  margin-bottom: 0;
+}
+
+.viz-controls &gt; .form-label &gt; :is(.form-control, .form-range, .form-select) {
+  grid-column: 1 / -1;
+}
+
+.btn,
+.nav-link,
+.form-check-input,
+.form-control,
+.form-range,
+.form-select {
+  font: inherit;
+}
+
+.btn,
+.nav-link {
+  appearance: button;
+  display: inline-flex;
+  inline-size: fit-content;
+  max-inline-size: 100%;
+  min-height: 28px;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  margin: 0;
+  padding: 0 8px;
+  -webkit-app-region: no-drag;
+  border: 1px solid var(--input);
+  border-radius: var(--radius-lg);
+  corner-shape: var(--corner-shape);
+  color: var(--secondary-foreground);
+  background: var(--secondary);
+  cursor: var(--cursor-interaction, pointer);
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+  user-select: none;
+  -webkit-font-smoothing: antialiased;
+}
+
+.btn:is(.btn-block, .viz-tile) {
+  inline-size: 100%;
+}
+
+.btn.viz-tile {
+  min-width: 0;
+  overflow-wrap: anywhere;
+  white-space: normal;
+}
+
+a.btn {
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn:not(:disabled):hover,
+.nav-link:not(:disabled):not([aria-disabled=&quot;true&quot;]):hover {
+  background: color-mix(in srgb, var(--foreground) 6%, var(--secondary));
+}
+
+.btn-primary {
+  border-color: transparent;
+  color: var(--primary-foreground);
+  background: var(--foreground);
+  background-clip: padding-box;
+}
+
+.btn-primary .text-muted {
+  color: color-mix(in srgb, var(--primary-foreground) 50%, transparent);
+}
+
+.btn-primary:not(:disabled):hover {
+  background: color-mix(in srgb, var(--foreground) 80%, transparent);
+  background-clip: padding-box;
+}
+
+.btn-ghost {
+  border-color: transparent;
+  color: var(--muted-foreground);
+  background: transparent;
+}
+
+.btn-ghost:not(:disabled):hover {
+  color: var(--foreground);
+  background: color-mix(in srgb, var(--foreground) 6%, var(--secondary));
+}
+
+.nav-pills .nav-link {
+  min-width: 0;
+  border-color: transparent;
+  color: var(--muted-foreground);
+  background: transparent;
+}
+
+.nav-justified .nav-link {
+  flex: 1 1 0;
+  overflow-wrap: anywhere;
+  white-space: normal;
+}
+
+.nav-pills .nav-link.active {
+  color: var(--foreground);
+  background: var(--muted);
+}
+
+.btn:disabled,
+.nav-link:disabled,
+.nav-link[aria-disabled=&quot;true&quot;] {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+[data-lucide] {
+  stroke-width: 1.6;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--foreground);
+}
+
+.form-control {
+  display: block;
+  width: 100%;
+  min-height: 28px;
+  padding: 0 8px;
+  outline: none;
+  border: 1px solid var(--input);
+  border-radius: var(--radius-lg);
+  corner-shape: var(--corner-shape);
+  color: var(--foreground);
+  background: var(--secondary);
+}
+
+.form-control::placeholder {
+  color: var(--muted-foreground);
+}
+
+.form-control[type=&quot;file&quot;] {
+  padding: 0;
+  overflow: hidden;
+  cursor: var(--cursor-interaction, pointer);
+}
+
+.form-control[type=&quot;file&quot;]::file-selector-button {
+  min-height: 26px;
+  margin-right: 8px;
+  padding: 0 8px;
+  border: 0;
+  border-right: 1px solid var(--input);
+  color: var(--secondary-foreground);
+  background: var(--secondary);
+  cursor: inherit;
+  font: inherit;
+}
+
+.form-control[type=&quot;file&quot;]:not(:disabled):hover::file-selector-button {
+  background: color-mix(in srgb, var(--foreground) 6%, var(--secondary));
+}
+
+.form-control-color[type=&quot;color&quot;] {
+  width: 40px;
+  height: 28px;
+  padding: 3px;
+  cursor: var(--cursor-interaction, pointer);
+}
+
+.form-control-color[type=&quot;color&quot;]::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+.form-control-color[type=&quot;color&quot;]::-webkit-color-swatch {
+  border: 0;
+  border-radius: calc(var(--radius-lg) - 4px);
+  corner-shape: var(--corner-shape);
+}
+
+textarea.form-control {
+  height: auto;
+  min-height: 72px;
+  padding: 8px 10px;
+  resize: vertical;
+}
+
+.form-control:focus-visible {
+  border-color: var(--ring);
+  box-shadow: inset 0 0 0 1px var(--ring);
+}
+
+.form-control:disabled,
+.form-select:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+.form-select {
+  appearance: none;
+  display: block;
+  width: 100%;
+  min-height: 28px;
+  margin: 0;
+  padding: 0 32px 0 8px;
+  outline: none;
+  border: 1px solid var(--input);
+  border-radius: var(--radius-lg);
+  corner-shape: var(--corner-shape);
+  color: var(--foreground);
+  background-color: var(--secondary);
+  background-image:
+    linear-gradient(45deg, transparent 50%, var(--muted-foreground) 50%),
+    linear-gradient(135deg, var(--muted-foreground) 50%, transparent 50%);
+  background-position:
+    calc(100% - 14px) 50%,
+    calc(100% - 10px) 50%;
+  background-repeat: no-repeat;
+  background-size: 4px 4px;
+  cursor: var(--cursor-interaction, default);
+}
+
+.form-select:not(:disabled):hover {
+  background-color: color-mix(in srgb, var(--foreground) 6%, var(--secondary));
+}
+
+.form-select:focus-visible {
+  border-color: var(--ring);
+  box-shadow: inset 0 0 0 1px var(--ring);
+}
+
+.form-check {
+  display: flex;
+  min-height: 20px;
+  align-items: center;
+  gap: 6px;
+}
+
+.form-check-input {
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  flex: 0 0 auto;
+  margin: 0;
+  border: 1px solid var(--input);
+  color: var(--primary-foreground);
+  background-color: transparent;
+  cursor: var(--cursor-interaction, default);
+  transition:
+    background-color 150ms,
+    border-color 150ms,
+    box-shadow 150ms;
+}
+
+.form-check:not(.form-switch) .form-check-input[type=&quot;checkbox&quot;] {
+  border-color: var(--input);
+  border-radius: var(--radius-sm);
+  corner-shape: var(--corner-shape);
+  background-color: var(--secondary);
+  box-shadow: var(--shadow-sm);
+}
+
+.form-check:not(.form-switch)
+  .form-check-input:not(:disabled):not(:checked):hover {
+  background-color: var(--card);
+}
+
+.form-check:not(.form-switch) .form-check-input[type=&quot;checkbox&quot;]:checked {
+  border-color: var(--primary);
+  background-color: var(--primary);
+}
+
+.form-check:not(.form-switch)
+  .form-check-input[type=&quot;checkbox&quot;]:checked::before {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: var(--primary-foreground);
+  content: &quot;&quot;;
+  mask: var(--checkmark-image) center / 12px 12px no-repeat;
+}
+
+.form-check-input[type=&quot;radio&quot;] {
+  width: 14px;
+  height: 14px;
+  border-radius: var(--radius-full);
+}
+
+.form-check-input[type=&quot;radio&quot;]:checked {
+  border: 2px solid var(--primary);
+  background:
+    radial-gradient(circle, var(--primary-foreground) 0 2.5px, transparent 3px),
+    var(--primary);
+}
+
+.form-check:not(.form-switch) .form-check-input:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+
+.form-check:not(.form-switch) .form-check-input:disabled {
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.form-check:not(.form-switch) .form-check-input:disabled + .form-check-label {
+  cursor: not-allowed;
+}
+
+.form-switch .form-check-input:disabled,
+.form-switch .form-check-input:disabled + .form-check-label {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.form-check-label {
+  color: var(--foreground);
+  cursor: var(--cursor-interaction, default);
+}
+
+.form-switch .form-check-input {
+  position: relative;
+  width: 32px;
+  height: 20px;
+  border: 0;
+  border-radius: var(--radius-full);
+  background: var(--muted);
+  box-shadow: none;
+  transition: background-color 200ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.form-switch .form-check-input::before {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 16px;
+  height: 16px;
+  box-sizing: border-box;
+  border: 1px solid light-dark(var(--primary-foreground), var(--foreground));
+  border-radius: var(--radius-full);
+  background: light-dark(var(--primary-foreground), var(--foreground));
+  box-shadow: var(--shadow-sm);
+  content: &quot;&quot;;
+  transform: translate(2px, -50%);
+  transition: transform 200ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.form-switch .form-check-input:checked {
+  background: var(--primary);
+}
+
+.form-switch .form-check-input:checked::before {
+  transform: translate(14px, -50%);
+}
+
+.form-switch .form-check-input:focus-visible {
+  box-shadow: 0 0 0 2px var(--ring);
+}
+
+.form-range {
+  appearance: none;
+  display: block;
+  width: 100%;
+  height: 28px;
+  flex: 1;
+  margin: 0;
+  padding: 0;
+  outline: none;
+  border: 0;
+  accent-color: var(--primary);
+  background: linear-gradient(
+      color-mix(in srgb, var(--foreground) 7%, transparent),
+      color-mix(in srgb, var(--foreground) 7%, transparent)
+    )
+    center / 100% 2px no-repeat;
+}
+
+.form-range::-webkit-slider-runnable-track {
+  height: 28px;
+  background: transparent;
+}
+
+.form-range::-webkit-slider-thumb {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  margin-top: 4px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-full);
+  background: light-dark(var(--primary-foreground), var(--foreground));
+}
+
+.form-range:focus-visible::-webkit-slider-thumb {
+  border-color: var(--ring);
+  box-shadow: inset 0 0 0 1px var(--ring);
+}
+
+.form-range::-moz-range-track {
+  height: 28px;
+  background: transparent;
+}
+
+.form-range::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-full);
+  background: light-dark(var(--primary-foreground), var(--foreground));
+}
+
+.form-range:focus-visible::-moz-range-thumb {
+  border-color: var(--ring);
+  box-shadow: inset 0 0 0 1px var(--ring);
+}
+
+.form-range:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+.btn:not(.btn-primary, .viz-tile):is(
+  [aria-pressed=&quot;true&quot;],
+  [aria-selected=&quot;true&quot;],
+  .is-selected
+) {
+  border-color: var(--primary);
+  color: var(--primary-foreground);
+  background: var(--primary);
+}
+
+.btn.viz-tile:is([aria-pressed=&quot;true&quot;], [aria-selected=&quot;true&quot;], .is-selected) {
+  border-color: var(--primary);
+  box-shadow: inset 0 0 0 1px var(--primary);
+}
+
+.btn:focus-visible,
+.nav-link:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+
+@media (pointer: coarse) {
+  .btn,
+  .nav-link,
+  .form-control,
+  .form-select {
+    min-width: 44px;
+    min-height: 44px;
+  }
+
+  /* Keep small-screen WebKit from zooming when a text field receives focus. */
+  .form-control,
+  .form-select {
+    font-size: max(16px, var(--font-size-normal));
+  }
+
+  .form-control[type=&quot;file&quot;]::file-selector-button {
+    min-width: 44px;
+    min-height: 44px;
+  }
+
+  .form-control-color[type=&quot;color&quot;] {
+    width: 44px;
+    height: 44px;
+  }
+
+  .form-control:is(
+    [type=&quot;date&quot;],
+    [type=&quot;datetime-local&quot;],
+    [type=&quot;month&quot;],
+    [type=&quot;time&quot;],
+    [type=&quot;week&quot;]
+  ) {
+    min-width: 0;
+    max-width: 100%;
+    padding-block: 8px;
+  }
+
+  .form-check {
+    min-height: 44px;
+    padding-inline: 15px;
+  }
+
+  .form-check-input {
+    position: relative;
+  }
+
+  .form-check-input::after {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 44px;
+    height: 44px;
+    content: &quot;&quot;;
+    transform: translate(-50%, -50%);
+  }
+
+  .form-check-label {
+    display: inline-flex;
+    min-width: 44px;
+    min-height: 44px;
+    align-items: center;
+  }
+
+  .form-range {
+    height: 44px;
+    touch-action: pan-y;
+  }
+
+  .form-range::-webkit-slider-runnable-track {
+    height: 44px;
+  }
+
+  .form-range::-moz-range-track {
+    height: 44px;
+  }
+
+  .form-range::-webkit-slider-thumb {
+    margin-top: 12px;
+  }
+}
+
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+#widget &gt; svg {
+  width: 100%;
+}
+
+/* Model-authored chart rules can otherwise stretch icons after these styles load. */
+svg.lucide {
+  display: block;
+  width: var(--icon-size) !important;
+  height: var(--icon-size) !important;
+  flex: none;
+  margin: 0 !important;
+  stroke-width: 1.6;
+}
+
+.text-warning,
+.text-destructive {
+  color: var(--destructive);
+}
+
+html&gt;body{padding:0}&lt;/style&gt;
+&lt;script&gt;
+(() =&gt; {
+  const root = document.documentElement;
+  const initialGlobals =
+    globalThis.__codexVisualizationInitialGlobals ?? globalThis.openai;
+  delete globalThis.__codexVisualizationInitialGlobals;
+  let appliedProperties = [];
+
+  const applyHostStyleVariables = (styleVariables) =&gt; {
+    if (styleVariables == null || typeof styleVariables !== &quot;object&quot;) {
+      return;
+    }
+    for (const property of appliedProperties) {
+      root.style.removeProperty(property);
+    }
+    appliedProperties = [];
+    for (const [property, value] of Object.entries(styleVariables)) {
+      if (property.startsWith(&quot;--&quot;) &amp;&amp; typeof value === &quot;string&quot;) {
+        root.style.setProperty(property, value);
+        appliedProperties.push(property);
+      }
+    }
+  };
+
+  const syncHostStyles = (globals) =&gt; {
+    applyHostStyleVariables(globals?.visualizationStyleVariables);
+    const sandboxDocument = globalThis.frameElement?.ownerDocument;
+    if (sandboxDocument != null &amp;&amp; globals?.visualizationTheme != null) {
+      let colorSchemeMeta = sandboxDocument.querySelector(
+        'meta[name=&quot;color-scheme&quot;]',
+      );
+      if (colorSchemeMeta == null) {
+        colorSchemeMeta = sandboxDocument.createElement(&quot;meta&quot;);
+        colorSchemeMeta.name = &quot;color-scheme&quot;;
+        sandboxDocument.head.appendChild(colorSchemeMeta);
+      }
+      colorSchemeMeta.content = globals.visualizationTheme;
+      sandboxDocument.documentElement.style.colorScheme =
+        globals.visualizationTheme;
+      // Paint the host surface behind transparent saved visualization documents.
+      sandboxDocument.documentElement.style.backgroundColor =
+        root.style.getPropertyValue(&quot;--background&quot;);
+    }
+  };
+
+  syncHostStyles(initialGlobals);
+  globalThis.addEventListener(&quot;openai:set_globals&quot;, (event) =&gt; {
+    syncHostStyles(event.detail?.globals);
+  });
+})();
+&lt;/script&gt;
+
+
+&lt;div id=&quot;atlas-live&quot; aria-label=&quot;Knowledge Atlas interactive prototype&quot;&gt;
+&lt;style&gt;
+#atlas-live{--at-bg:light-dark(#f5f7f7,#161e22);--at-paper:light-dark(#ffffff,#202a30);--at-ink:light-dark(#203741,#e6eef0);--at-muted:light-dark(#576d76,#aec1c8);--at-line:light-dark(#d8e2e5,#3a4c55);--at-accent:light-dark(#006e70,#6bd8cb);--at-tint:light-dark(#e4f1ed,#253f40);font-family:Arial,sans-serif;color:var(--at-ink);background:var(--at-bg);border:1px solid var(--at-line);border-radius:12px;overflow:hidden;font-size:14px;line-height:1.5}
+#atlas-live *{box-sizing:border-box}#atlas-live button{font:inherit;color:inherit;cursor:pointer;white-space:normal;text-align:left}#atlas-live .at-top{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:18px 24px;background:var(--at-paper);border-bottom:1px solid var(--at-line)}#atlas-live .at-brand{font-size:18px;font-weight:500;letter-spacing:-.5px}#atlas-live .at-label{font-size:12px;color:var(--at-muted);letter-spacing:1px;text-transform:uppercase}#atlas-live .at-shell{display:grid;grid-template-columns:205px minmax(0,1fr)}#atlas-live nav{padding:24px 12px;border-right:1px solid var(--at-line)}#atlas-live nav button{display:block;width:100%;border:0;background:transparent;padding:11px 12px;border-radius:7px;margin-bottom:4px}#atlas-live nav button[aria-current=&quot;page&quot;]{background:var(--at-tint);color:var(--at-accent)}#atlas-live nav .at-label{padding:18px 12px 8px}#atlas-live main{padding:26px;min-width:0;min-height:560px}#atlas-live h1{font-size:28px;font-weight:500;line-height:1.2;letter-spacing:-.6px;margin:10px 0 16px}#atlas-live h2{font-size:19px;line-height:1.3;font-weight:500;margin:22px 0 12px}#atlas-live h3{font-size:16px;font-weight:500;margin:0 0 8px}#atlas-live p{margin:8px 0 16px}#atlas-live .at-lead{font-size:16px;color:var(--at-muted);max-width:660px}#atlas-live .at-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}#atlas-live .at-card{display:block;background:var(--at-paper);border:1px solid var(--at-line);padding:20px;border-radius:9px;width:100%}#atlas-live button:hover{border-color:var(--at-accent);color:var(--at-accent)}#atlas-live .at-card .at-label{display:block;margin-bottom:12px;color:var(--at-accent)}#atlas-live .at-card p{color:var(--at-muted);margin:8px 0 14px}#atlas-live .at-link{background:none;border:0;padding:0;color:var(--at-accent);text-decoration:underline;text-underline-offset:3px}#atlas-live .at-action{border:1px solid var(--at-line);background:var(--at-paper);padding:9px 13px;border-radius:6px}#atlas-live .at-actions{display:flex;gap:8px;flex-wrap:wrap;margin:18px 0}#atlas-live .at-meta{display:flex;gap:10px;align-items:center;flex-wrap:wrap;color:var(--at-muted);font-size:12px}#atlas-live .at-tag{display:inline-block;background:var(--at-tint);color:var(--at-accent);border-radius:4px;padding:3px 7px;font-size:12px}#atlas-live .at-route{display:flex;gap:7px;flex-wrap:wrap;padding:14px 0;border-top:1px solid var(--at-line);border-bottom:1px solid var(--at-line);margin:20px 0}#atlas-live .at-route span{color:var(--at-accent)}#atlas-live .at-list{display:grid;gap:0}#atlas-live .at-row{display:grid;grid-template-columns:34px minmax(0,1fr) 18px;gap:8px;background:none;border:0;border-bottom:1px solid var(--at-line);padding:15px 0;width:100%}#atlas-live .at-row small{display:block;color:var(--at-muted);font-size:12px;margin-top:4px}#atlas-live .at-num{color:var(--at-accent)}#atlas-live .at-detail{background:var(--at-paper);border:1px solid var(--at-line);border-radius:9px;padding:20px;margin:18px 0}#atlas-live .at-detail ul{padding-left:20px;margin:8px 0}#atlas-live .at-detail li{margin:7px 0}#atlas-live .at-related{display:flex;gap:8px;flex-wrap:wrap}#atlas-live .at-evidence{border-left:3px solid var(--at-accent);padding:0 0 0 15px;margin:18px 0;color:var(--at-muted)}#atlas-live .at-bottom{display:flex;justify-content:space-between;gap:12px;border-top:1px solid var(--at-line);padding-top:16px;margin-top:24px}#atlas-live .at-foot{padding:12px 24px;border-top:1px solid var(--at-line);color:var(--at-muted);font-size:12px}#atlas-live .at-domain{border-left:3px solid var(--at-accent);padding:12px 16px;background:var(--at-paper);margin:8px 0}#atlas-live .at-refs{display:flex;gap:8px;flex-wrap:wrap}#atlas-live .at-refs button{padding:7px 9px;background:transparent;border:1px solid var(--at-line);border-radius:5px}#atlas-live details summary{cursor:pointer;color:var(--at-accent)}#atlas-live .at-steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:7px}#atlas-live .at-steps button{min-width:0;padding:12px 8px;background:var(--at-paper);border:1px solid var(--at-line);border-radius:6px}#atlas-live .at-steps button.active{background:var(--at-tint);border-color:var(--at-accent)}
+@media(max-width:680px){#atlas-live .at-shell{grid-template-columns:1fr}#atlas-live nav{border-right:0;border-bottom:1px solid var(--at-line);display:flex;flex-wrap:wrap;padding:10px;gap:3px}#atlas-live nav button{width:auto;font-size:12px;padding:8px}#atlas-live nav .at-label{display:none}#atlas-live main{padding:18px;min-height:0}#atlas-live .at-top{padding:14px 18px;align-items:flex-start}#atlas-live .at-grid{grid-template-columns:1fr}#atlas-live h1{font-size:24px}#atlas-live .at-steps{grid-template-columns:repeat(2,minmax(0,1fr))}}
+&lt;/style&gt;
+&lt;header class=&quot;at-top&quot;&gt;&lt;div&gt;&lt;div class=&quot;at-label&quot;&gt;ATCO • Study knowledge base&lt;/div&gt;&lt;div class=&quot;at-brand&quot;&gt;Knowledge Atlas&lt;/div&gt;&lt;/div&gt;&lt;span class=&quot;at-tag&quot;&gt;Concept preview&lt;/span&gt;&lt;/header&gt;
+&lt;div class=&quot;at-shell&quot;&gt;&lt;nav aria-label=&quot;Atlas navigation&quot;&gt;&lt;/nav&gt;&lt;main aria-live=&quot;polite&quot;&gt;&lt;/main&gt;&lt;/div&gt;
+&lt;footer class=&quot;at-foot&quot;&gt;Proposed architecture • Study sources retain their original status • Detailed coverage is not yet complete&lt;/footer&gt;
+&lt;script&gt;
+(()=&gt;{
+const root=document.getElementById('atlas-live'),main=root.querySelector('main'),nav=root.querySelector('nav');
+const modules=[{&quot;id&quot;: &quot;1.1&quot;, &quot;title&quot;: &quot;The system and its context&quot;, &quot;topics&quot;: [&quot;ATCO management cycle&quot;, &quot;individual career versus organisational workforce&quot;, &quot;ANSP characteristics&quot;, &quot;governance&quot;, &quot;external conditions&quot;, &quot;links between hiring, training and operations&quot;], &quot;outcome&quot;: &quot;The boundaries of the system and who makes the relevant decisions.&quot;}, {&quot;id&quot;: &quot;1.2&quot;, &quot;title&quot;: &quot;Strategic workforce planning&quot;, &quot;topics&quot;: [&quot;Traffic and staffing requirements&quot;, &quot;planning horizons&quot;, &quot;recruitment and training lead times&quot;, &quot;retirement forecasts&quot;, &quot;uncertainty&quot;, &quot;alignment of training capacity and planned intake&quot;], &quot;outcome&quot;: &quot;How operational needs become workforce and training decisions.&quot;}, {&quot;id&quot;: &quot;1.3&quot;, &quot;title&quot;: &quot;Attracting and recruiting candidates&quot;, &quot;topics&quot;: [&quot;Profession awareness&quot;, &quot;applicant pools&quot;, &quot;entry requirements&quot;, &quot;financial and other barriers&quot;, &quot;international recruitment&quot;, &quot;attractiveness&quot;], &quot;outcome&quot;: &quot;How the system develops an accessible pool of suitable candidates.&quot;}, {&quot;id&quot;: &quot;1.4&quot;, &quot;title&quot;: &quot;Selecting for successful progression&quot;, &quot;topics&quot;: [&quot;Aptitude and trainability&quot;, &quot;behavioural attributes&quot;, &quot;selection stages&quot;, &quot;medical eligibility&quot;, &quot;predictive validity&quot;, &quot;feedback from training and operations&quot;], &quot;outcome&quot;: &quot;How selection affects both intake and later training outcomes.&quot;}, {&quot;id&quot;: &quot;1.5&quot;, &quot;title&quot;: &quot;Initial training&quot;, &quot;topics&quot;: [&quot;Basic and rating training&quot;, &quot;theory and simulation&quot;, &quot;generic versus locally relevant content&quot;, &quot;instructor and simulator resources&quot;, &quot;independent practice&quot;, &quot;transition readiness&quot;], &quot;outcome&quot;: &quot;What is developed before unit training and how preparation affects the next stage.&quot;}, {&quot;id&quot;: &quot;1.6&quot;, &quot;title&quot;: &quot;Unit training and operational qualification&quot;, &quot;topics&quot;: [&quot;Transitional training and pre-OJT&quot;, &quot;OJT&quot;, &quot;instructor and assessor availability&quot;, &quot;training opportunities in live traffic&quot;, &quot;progression and assessment&quot;, &quot;training duration and success&quot;, &quot;unit endorsement&quot;], &quot;outcome&quot;: &quot;How trainees reach operational qualification and why throughput can become constrained.&quot;}, {&quot;id&quot;: &quot;1.7&quot;, &quot;title&quot;: &quot;Sector qualifications and licensing&quot;, &quot;topics&quot;: [&quot;Sector-specific training&quot;, &quot;endorsement coverage and grouping&quot;, &quot;licensing architecture&quot;, &quot;recognition and transfer processes&quot;, &quot;responsibilities for approval and assessment&quot;], &quot;outcome&quot;: &quot;How qualification scope shapes subsequent deployment. Legal detail belongs in linked verified regulation records.&quot;}, {&quot;id&quot;: &quot;1.8&quot;, &quot;title&quot;: &quot;Deployment and operational work&quot;, &quot;topics&quot;: [&quot;Rostering&quot;, &quot;sector opening plans&quot;, &quot;availability of the required endorsements&quot;, &quot;duty time&quot;, &quot;utilisation&quot;, &quot;working methods&quot;, &quot;airspace organisation&quot;, &quot;productivity&quot;, &quot;allocation between operations and training&quot;], &quot;outcome&quot;: &quot;How qualified staff become usable operational capacity.&quot;}, {&quot;id&quot;: &quot;1.9&quot;, &quot;title&quot;: &quot;Sustaining and adapting the workforce&quot;, &quot;topics&quot;: [&quot;Competence maintenance and currency&quot;, &quot;continuation and change-related training&quot;, &quot;wellbeing and working conditions&quot;, &quot;retention&quot;, &quot;career development&quot;, &quot;instructor roles&quot;, &quot;mobility&quot;, &quot;retirement and attrition&quot;], &quot;outcome&quot;: &quot;Why workforce supply and deployability continue to change after initial qualification.&quot;}, {&quot;id&quot;: &quot;1.10&quot;, &quot;title&quot;: &quot;Post-operations learning&quot;, &quot;topics&quot;: [&quot;Performance monitoring&quot;, &quot;operational feedback&quot;, &quot;identification of capacity constraints&quot;, &quot;lessons for training, rostering, working methods and planning&quot;], &quot;outcome&quot;: &quot;How experience changes the next planning and training cycle.&quot;}, {&quot;id&quot;: &quot;2.1&quot;, &quot;title&quot;: &quot;What do we mean by shortage?&quot;, &quot;topics&quot;: [&quot;Staffing requirement&quot;, &quot;available workforce&quot;, &quot;ATCO gap&quot;, &quot;local versus aggregate imbalance&quot;, &quot;staffing shortfall versus capacity shortfall&quot;, &quot;measurement scope&quot;], &quot;outcome&quot;: &quot;Which question a shortage measure answers and what it leaves out.&quot;}, {&quot;id&quot;: &quot;2.2&quot;, &quot;title&quot;: &quot;Reading the evidence&quot;, &quot;topics&quot;: [&quot;Headcount and FTE&quot;, &quot;ATCOs in OPS&quot;, &quot;hours on duty&quot;, &quot;utilisation&quot;, &quot;productivity&quot;, &quot;traffic measures&quot;, &quot;delay categories&quot;, &quot;training and workforce data&quot;, &quot;comparability and missing data&quot;], &quot;outcome&quot;: &quot;The meaning and limitations of the indicators before comparing them.&quot;}, {&quot;id&quot;: &quot;2.3&quot;, &quot;title&quot;: &quot;What has changed over time?&quot;, &quot;topics&quot;: [&quot;Workforce trends&quot;, &quot;hours and productivity trends&quot;, &quot;traffic and delay evolution&quot;, &quot;planned versus actual staffing&quot;, &quot;pandemic disruption&quot;, &quot;variation between ANSPs and ACCs&quot;], &quot;outcome&quot;: &quot;How different components evolved and where they diverged.&quot;}, {&quot;id&quot;: &quot;2.4&quot;, &quot;title&quot;: &quot;Where do shortages become visible?&quot;, &quot;topics&quot;: [&quot;Local patterns&quot;, &quot;network contribution&quot;, &quot;staffing and capacity delay evidence&quot;, &quot;operational constraints&quot;, &quot;retrospective ANSP cases&quot;, &quot;triangulation with interviews and surveys&quot;], &quot;outcome&quot;: &quot;Why an indicator can motivate investigation without by itself establishing a cause.&quot;}, {&quot;id&quot;: &quot;2.5&quot;, &quot;title&quot;: &quot;How workforce demand is formed&quot;, &quot;topics&quot;: [&quot;Traffic volume and patterns&quot;, &quot;productivity&quot;, &quot;utilisation&quot;, &quot;annual staff hours&quot;, &quot;operational context and complexity&quot;, &quot;deployment constraints&quot;], &quot;outcome&quot;: &quot;How traffic demand becomes an estimated requirement for controllers. Separate explicit model variables from contextual influences.&quot;}, {&quot;id&quot;: &quot;2.6&quot;, &quot;title&quot;: &quot;How workforce supply evolves&quot;, &quot;topics&quot;: [&quot;Starting workforce&quot;, &quot;training intake&quot;, &quot;training duration&quot;, &quot;success rate&quot;, &quot;phase capacity&quot;, &quot;retirements&quot;, &quot;attrition&quot;, &quot;transfers and mobility&quot;], &quot;outcome&quot;: &quot;How inflows, outflows and lead times change supply. Distinguish modelled flows from additional conceptual relationships.&quot;}, {&quot;id&quot;: &quot;2.7&quot;, &quot;title&quot;: &quot;The supply–demand model&quot;, &quot;topics&quot;: [&quot;Model purpose and boundary&quot;, &quot;demand and supply calculations&quot;, &quot;baseline&quot;, &quot;ACC results and aggregation&quot;, &quot;gap sign and units&quot;, &quot;data provenance&quot;, &quot;validation and limitations&quot;], &quot;outcome&quot;: &quot;What is calculated, at what scale, and with which assumptions.&quot;}, {&quot;id&quot;: &quot;2.8&quot;, &quot;title&quot;: &quot;Scenarios, sensitivity and uncertainty&quot;, &quot;topics&quot;: [&quot;Traffic scenarios&quot;, &quot;productivity assumptions&quot;, &quot;intake scenarios&quot;, &quot;sensitivity to individual variables&quot;, &quot;time to effect&quot;, &quot;interactions and bottlenecks&quot;, &quot;historical model versions&quot;], &quot;outcome&quot;: &quot;Why a projected outcome is conditional and why a sensitive variable is not automatically an easy policy lever.&quot;}, {&quot;id&quot;: &quot;2.9&quot;, &quot;title&quot;: &quot;What follows from the analysis?&quot;, &quot;topics&quot;: [&quot;Which drivers merit attention&quot;, &quot;which constraints limit intervention effects&quot;, &quot;local applicability&quot;, &quot;evidence gaps&quot;, &quot;links to intervention portfolios&quot;], &quot;outcome&quot;: &quot;How analysis informs action without claiming to prove the effect of every proposed solution.&quot;}, {&quot;id&quot;: &quot;3.1&quot;, &quot;title&quot;: &quot;Recognising the problem&quot;, &quot;topics&quot;: [&quot;Workforce gap&quot;, &quot;insufficient training output&quot;, &quot;poor deployment flexibility&quot;, &quot;mismatch with traffic&quot;, &quot;uncertainty in future staffing&quot;, &quot;operational consequences&quot;], &quot;outcome&quot;: &quot;The outcome requiring attention, before assuming its cause.&quot;}, {&quot;id&quot;: &quot;3.2&quot;, &quot;title&quot;: &quot;Challenges and their causes&quot;, &quot;topics&quot;: [&quot;Planning and governance constraints&quot;, &quot;candidate suitability&quot;, &quot;training resources&quot;, &quot;progression and assessment&quot;, &quot;endorsement and mobility constraints&quot;, &quot;rostering&quot;, &quot;technology and working methods&quot;, &quot;feedback weaknesses&quot;], &quot;outcome&quot;: &quot;The mechanism behind a challenge, with reported observations distinguished from causal interpretation.&quot;}, {&quot;id&quot;: &quot;3.3&quot;, &quot;title&quot;: &quot;How interventions can work&quot;, &quot;topics&quot;: [&quot;Improve planning&quot;, &quot;improve entry and selection&quot;, &quot;increase training throughput&quot;, &quot;retain competence&quot;, &quot;improve deployment&quot;, &quot;improve operational productivity&quot;, &quot;enable recognition and cooperation&quot;], &quot;outcome&quot;: &quot;The route through which a measure might change the workforce situation.&quot;}, {&quot;id&quot;: &quot;3.4&quot;, &quot;title&quot;: &quot;Measures and practices&quot;, &quot;topics&quot;: [&quot;Existing reported practices&quot;, &quot;proposed future practices&quot;, &quot;implementation examples&quot;, &quot;alternatives&quot;, &quot;prerequisites&quot;, &quot;relevant contexts&quot;, &quot;limits of transferability&quot;], &quot;outcome&quot;: &quot;What a particular intervention actually involves and the basis for expecting benefits.&quot;}, {&quot;id&quot;: &quot;3.5&quot;, &quot;title&quot;: &quot;Assessing and prioritising&quot;, &quot;topics&quot;: [&quot;Challenge prevalence and severity&quot;, &quot;study importance score&quot;, &quot;feasibility&quot;, &quot;implementation dependencies&quot;, &quot;time to effect&quot;, &quot;affected model variables&quot;, &quot;evidence quality&quot;], &quot;outcome&quot;: &quot;How the study ranked measures and what that ranking does and does not establish.&quot;}, {&quot;id&quot;: &quot;3.6&quot;, &quot;title&quot;: &quot;Building an intervention portfolio&quot;, &quot;topics&quot;: [&quot;Complementary measures&quot;, &quot;sequencing&quot;, &quot;bottlenecks&quot;, &quot;competition for resources&quot;, &quot;near-term and longer-term effects&quot;, &quot;local selection of measures&quot;], &quot;outcome&quot;: &quot;Why a package may be necessary and why effects should not simply be added together.&quot;}, {&quot;id&quot;: &quot;3.7&quot;, &quot;title&quot;: &quot;Responsibilities and implementation&quot;, &quot;topics&quot;: [&quot;ANSP actions&quot;, &quot;national and European enablers&quot;, &quot;training providers&quot;, &quot;technology providers&quot;, &quot;workforce participation&quot;, &quot;ownership and dependencies&quot;], &quot;outcome&quot;: &quot;Who must act and what requires coordination.&quot;}, {&quot;id&quot;: &quot;3.8&quot;, &quot;title&quot;: &quot;Monitoring and learning&quot;, &quot;topics&quot;: [&quot;Baseline&quot;, &quot;intended outcomes&quot;, &quot;indicators&quot;, &quot;milestones&quot;, &quot;review of unintended effects&quot;, &quot;operational feedback&quot;], &quot;outcome&quot;: &quot;How to determine whether a measure is producing the intended result.&quot;}, {&quot;id&quot;: &quot;4.1&quot;, &quot;title&quot;: &quot;Why the system may change&quot;, &quot;topics&quot;: [&quot;Workforce constraints&quot;, &quot;capacity and resilience&quot;, &quot;flexibility of service provision&quot;, &quot;technology opportunities&quot;, &quot;uncertainty&quot;], &quot;outcome&quot;: &quot;The problems and objectives motivating change.&quot;}, {&quot;id&quot;: &quot;4.2&quot;, &quot;title&quot;: &quot;Future operating concepts&quot;, &quot;topics&quot;: [&quot;Dynamic airspace and sector configurations&quot;, &quot;cross-border service provision&quot;, &quot;virtual service provision&quot;, &quot;delegation of services&quot;, &quot;physical and virtual mobility&quot;, &quot;harmonised working methods&quot;], &quot;outcome&quot;: &quot;The intended organisation of operations and its implications for people.&quot;}, {&quot;id&quot;: &quot;4.3&quot;, &quot;title&quot;: &quot;Technical systems and automation&quot;, &quot;topics&quot;: [&quot;ATM systems and HMI&quot;, &quot;decision support&quot;, &quot;automation and AI&quot;, &quot;stages of information processing&quot;, &quot;allocation of authority&quot;, &quot;interoperability&quot;, &quot;degraded modes&quot;], &quot;outcome&quot;: &quot;What the systems do and under what conditions their use changes human work.&quot;}, {&quot;id&quot;: &quot;4.4&quot;, &quot;title&quot;: &quot;Tasks and human roles&quot;, &quot;topics&quot;: [&quot;ATCO task decomposition&quot;, &quot;conflict-management example&quot;, &quot;Perform, Approve, Supervise, Intervene and No longer licence-critical&quot;, &quot;current and possible future task profiles&quot;], &quot;outcome&quot;: &quot;Why task-level analysis is needed before drawing conclusions about the ATCO role.&quot;}, {&quot;id&quot;: &quot;4.5&quot;, &quot;title&quot;: &quot;From tasks to competence&quot;, &quot;topics&quot;: [&quot;Aptitude&quot;, &quot;learning&quot;, &quot;knowledge&quot;, &quot;skills&quot;, &quot;behaviours and attitudes&quot;, &quot;competence&quot;, &quot;performance&quot;, &quot;task-to-competency relationships&quot;], &quot;outcome&quot;: &quot;The conceptual distinctions linking role requirements to demonstrated performance.&quot;}, {&quot;id&quot;: &quot;4.6&quot;, &quot;title&quot;: &quot;The three competency domains&quot;, &quot;topics&quot;: [&quot;Core ATCO competence&quot;, &quot;technical-system competence&quot;, &quot;operational-environment competence&quot;, &quot;integrated performance under defined conditions&quot;], &quot;outcome&quot;: &quot;The workshop's proposed way to make the components of operational competence explicit.&quot;}, {&quot;id&quot;: &quot;4.7&quot;, &quot;title&quot;: &quot;Training and assessment consequences&quot;, &quot;topics&quot;: [&quot;CBTA&quot;, &quot;generic foundations&quot;, &quot;representative environments&quot;, &quot;transition and pre-OJT&quot;, &quot;integration&quot;, &quot;gap assessment&quot;, &quot;delta training&quot;, &quot;evidence of performance&quot;], &quot;outcome&quot;: &quot;How learning and assessment could follow the required competence profile.&quot;}, {&quot;id&quot;: &quot;4.8&quot;, &quot;title&quot;: &quot;Licensing and recognition options&quot;, &quot;topics&quot;: [&quot;Existing architecture as the reference point&quot;, &quot;proposed CBL&quot;, &quot;system-based licensing&quot;, &quot;non-geographic validation&quot;, &quot;recognition of prior competence&quot;, &quot;recognition boundaries&quot;], &quot;outcome&quot;: &quot;The distinct options under discussion and what each would need to recognise.&quot;}, {&quot;id&quot;: &quot;4.9&quot;, &quot;title&quot;: &quot;Applications and worked cases&quot;, &quot;topics&quot;: [&quot;Moving between similar ACCs&quot;, &quot;new HMI or ATM system&quot;, &quot;different procedures or traffic characteristics&quot;, &quot;cross-border service provision&quot;, &quot;progressively automated tasks&quot;], &quot;outcome&quot;: &quot;What can potentially transfer and what still needs training and assessment.&quot;}, {&quot;id&quot;: &quot;4.10&quot;, &quot;title&quot;: &quot;Transition and evaluation&quot;, &quot;topics&quot;: [&quot;Evidence needed to establish equivalence&quot;, &quot;integrated operational performance&quot;, &quot;roles of authorities and providers&quot;, &quot;implementation sequencing&quot;, &quot;transition training demand&quot;, &quot;demonstrated workforce effects&quot;], &quot;outcome&quot;: &quot;What remains to be developed and tested before a concept can support operational use.&quot;}];
+const journeys=[{title:'The ATCO Pipeline',short:'ATCO Pipeline',q:'How do people become—and remain—available for operational service?',route:['Plan','Attract &amp; select','Train &amp; qualify','Deploy','Sustain','Learn &amp; replan'],desc:'Follow the workforce management cycle and see how one stage constrains the next.'},{title:'Understanding the ATCO Shortage',short:'Understanding shortage',q:'What does the evidence show, and how might the workforce gap evolve?',route:['Define','Observe','Diagnose','Model','Explore uncertainty'],desc:'Move from the meaning of shortage to evidence, mechanisms and conditional projections.'},{title:'Challenges &amp; Solutions',short:'Challenges &amp; solutions',q:'What can be changed, how could it work, and who needs to act?',route:['Recognise','Explain','Inspect measures','Assess','Implement','Learn'],desc:'Connect a problem to measures, prerequisites and the limits of the available evidence.'},{title:'The Future ATCO',short:'Future ATCO',q:'How could changing operations reshape tasks, competence and licensing?',route:['Operations','Systems','Tasks','Competence','Training','Recognition'],desc:'Follow the reasoning from a changed technical function to a qualification question.'}];
+const refs=[['Definitions','Terms, scope and distinctions across sources.'],['Regulation &amp; policy','Instruments, provisions, dates and status.'],['Stakeholders','Responsibilities and dependencies.'],['Sources &amp; evidence','Documents, findings, methods and qualifications.'],['Case studies','Context, reported practice and outcome evidence.'],['Initiatives','Objectives, dated status and available outputs.'],['Technologies','Functions, human interaction and training implications.'],['Data &amp; methods','Coverage, units, assumptions and model versions.']];
+const sources={F:['Draft Final Report','September 2026 • Revision 0.0 • Draft dated 7 September','Primary study synthesis. Findings and recommendations retain draft status.'],I:['Intermediate Report','June 2026 • Revision 2.0','Earlier analysis and outlook to 2040. Keep separate from the later 2036 model.'],W:['Competency-based licensing workshop','3 September 2026','Conceptual proposals on tasks, competence and licensing; not adopted regulatory requirements.'],C:['CBL one pager','Supplied study working material','Short conceptual introduction to CBTA and proposed CBL.']};
+const worked={
+'1.6':{status:'Worked example · Atlas synthesis',intro:'Unit training connects prior learning to performance in a particular operational setting. Its output depends on training opportunities, instructors, assessment and progression—not just the number of trainees entering.',heading:'Where the bottleneck can arise',items:['Operational staffing pressure can reduce the staff available to instruct.','Limited instructor availability can constrain training throughput.','Slower qualification delays the replenishment of the operational workforce.'],limit:'This feedback chain is an Atlas synthesis of mechanisms discussed in the study, not a separately quantified feedback model.',source:'F: sections 2.3 and 4.3, Annex F. I: chapter 2.',links:['2.6','3.4','4.7'],key:'Training throughput'},
+'2.6':{status:'Worked example · Model interpretation',intro:'Workforce supply evolves through inflows, outflows and training lead times. More training intake today is not the same as more qualified operational staff today.',heading:'Read the supply chain',items:['Starting workforce provides the baseline.','Training intake, duration and success determine the timing and scale of new qualification.','Retirements and other attrition reduce the available workforce.','Transfers change local supply; they need not increase total European supply.'],limit:'Transfers are shown here as a boundary consideration, not asserted to be an explicit variable in the final report model.',source:'F: section 2.2 and Annex E. I: chapter 4 (earlier model version).',links:['1.6','2.8','3.4'],key:'Supply and lead times'},
+'3.4':{status:'Worked example · Reported / proposed measures',intro:'A response to constrained unit-training output can combine instructor resources, training design and the scheduling of training opportunities.',heading:'An intervention portfolio to examine',items:['Dedicated instructor functions or instructor and assessor pools.','Competency-based progression and suitable preparation before operational training.','Timing training against operational demand.','Monitoring completion, duration and operational staffing effects together.'],limit:'This is an illustrative combination, not a package with a demonstrated combined effect. The study’s “Best Practice” label is not by itself proof of effectiveness.',source:'F: sections 4.2–4.4 and Annexes G–K. Portfolio grouping: Atlas proposal.',links:['1.6','2.6','3.7','3.8'],key:'Training measures'},
+'4.6':{status:'Worked example · Workshop proposal',intro:'The workshop proposes three domains to distinguish what might transfer between settings and what may need further training and assessment.',heading:'Three domains, integrated performance',items:['Core ATCO competence — common foundations of controller work.','Technical-system competence — competence with the relevant system and human–machine interface.','Operational-environment competence — competence for the relevant traffic, procedures and operating conditions.'],limit:'The domains form a conceptual model, not an additive equation. Recognition still requires evidence of integrated performance under defined conditions.',source:'W: slides 5–16. C: CBL one pager.',links:['4.4','4.7','4.8','4.9'],key:'Competence domains'},
+'4.8':{status:'Worked example · Recognition proposal',intro:'Training and assessment establish evidence of competence. Formal recognition asks what that evidence authorises, in which conditions, and with what boundaries.',heading:'Keep the concepts distinct',items:['CBTA concerns training and assessment.','Proposed competency-based licensing concerns the basis for formal recognition.','System-based licensing and non-geographic validation are related options requiring their own definitions.','Cross-border service provision is an operational arrangement, not a synonym for a licensing model.'],limit:'These are proposals for exploration. Regulatory records require verification against the instruments before publication.',source:'W: slides 5–16. C: CBL one pager. F: sections 4.3.3–4.3.4.',links:['4.6','4.9','1.7'],key:'Recognition boundaries'}};
+let view='home',selected=null,step=0;
+const esc=s=&gt;String(s).replaceAll('&amp;','&amp;amp;').replaceAll('&lt;','&amp;lt;').replaceAll('&quot;','&amp;quot;');
+const btn=(label,action,cls='at-action')=&gt;`&lt;button type=&quot;button&quot; class=&quot;${cls}&quot; data-go=&quot;${action}&quot;&gt;${label}&lt;/button&gt;`;
+function go(v){view=v;render();}
+function renderNav(){nav.innerHTML=btn('Atlas overview','home')+'&lt;div class=&quot;at-label&quot;&gt;Four journeys&lt;/div&gt;'+journeys.map((j,i)=&gt;btn(`${i+1} &amp;nbsp; ${j.short}`,'j'+(i+1))).join('')+'&lt;div class=&quot;at-label&quot;&gt;Shared knowledge&lt;/div&gt;'+btn('Reference library','refs')+btn('Connected walkthrough','walk');for(const b of nav.querySelectorAll('button')){const a=b.dataset.go; b.setAttribute('aria-current',a===view||(a==='j'+view[0]&amp;&amp;view.includes('.'))?'page':'false')}}
+function home(){main.innerHTML='&lt;div class=&quot;at-label&quot;&gt;One knowledge base • Four ways in&lt;/div&gt;&lt;h1&gt;Explore the ATCO system&lt;/h1&gt;&lt;p class=&quot;at-lead&quot;&gt;Start with your question. Follow a journey, then move across the Atlas wherever the underlying concepts connect.&lt;/p&gt;&lt;div class=&quot;at-grid&quot;&gt;'+journeys.map((j,i)=&gt;`&lt;button class=&quot;at-card&quot; type=&quot;button&quot; data-go=&quot;j${i+1}&quot;&gt;&lt;span class=&quot;at-label&quot;&gt;Journey 0${i+1}&lt;/span&gt;&lt;h3&gt;${j.title}&lt;/h3&gt;&lt;p&gt;${j.q}&lt;/p&gt;&lt;span&gt;Explore journey →&lt;/span&gt;&lt;/button&gt;`).join('')+'&lt;/div&gt;&lt;h2&gt;Follow one issue across the Atlas&lt;/h2&gt;'+btn('Unit training → workforce supply → possible measures','walk')+'&lt;h2&gt;Shared reference layer&lt;/h2&gt;&lt;div class=&quot;at-refs&quot;&gt;'+refs.map((r,i)=&gt;btn(r[0],'r'+i)).join('')+'&lt;/div&gt;';}
+function journey(n){const j=journeys[n-1],ms=modules.filter(m=&gt;m.id.startsWith(n+'.'));main.innerHTML=`&lt;div class=&quot;at-label&quot;&gt;Journey 0${n} • Proposed module structure&lt;/div&gt;&lt;h1&gt;${j.title}&lt;/h1&gt;&lt;p class=&quot;at-lead&quot;&gt;${j.q}&lt;/p&gt;&lt;div class=&quot;at-route&quot;&gt;${j.route.map(esc).join('&lt;span&gt;→&lt;/span&gt;')}&lt;/div&gt;&lt;div class=&quot;at-list&quot;&gt;${ms.map(m=&gt;`&lt;button type=&quot;button&quot; class=&quot;at-row&quot; data-go=&quot;${m.id}&quot;&gt;&lt;span class=&quot;at-num&quot;&gt;${m.id}&lt;/span&gt;&lt;span&gt;${m.title}&lt;small&gt;${worked[m.id]?'Worked example available':m.topics.slice(0,3).join(' · ')}&lt;/small&gt;&lt;/span&gt;&lt;span&gt;→&lt;/span&gt;&lt;/button&gt;`).join('')}&lt;/div&gt;`;}
+function topic(id){const m=modules.find(x=&gt;x.id===id),w=worked[id],n=+id[0],ms=modules.filter(x=&gt;x.id[0]===id[0]),idx=ms.indexOf(m);main.innerHTML=btn('← '+journeys[n-1].short,'j'+n,'at-link')+`&lt;div class=&quot;at-meta&quot; style=&quot;margin-top:20px&quot;&gt;&lt;span&gt;${id}&lt;/span&gt;&lt;span class=&quot;at-tag&quot;&gt;${w?w.status:'Proposed content outline'}&lt;/span&gt;&lt;/div&gt;&lt;h1&gt;${m.title}&lt;/h1&gt;&lt;p class=&quot;at-lead&quot;&gt;${w?w.intro:m.outcome}&lt;/p&gt;`+(w?`&lt;section class=&quot;at-detail&quot;&gt;&lt;h3&gt;${w.heading}&lt;/h3&gt;${id==='4.6'?w.items.map(x=&gt;`&lt;div class=&quot;at-domain&quot;&gt;${x}&lt;/div&gt;`).join(''):'&lt;ul&gt;'+w.items.map(x=&gt;'&lt;li&gt;'+x+'&lt;/li&gt;').join('')+'&lt;/ul&gt;'}&lt;/section&gt;&lt;div class=&quot;at-evidence&quot;&gt;${w.limit}&lt;/div&gt;`:'&lt;section class=&quot;at-detail&quot;&gt;&lt;h3&gt;Planned coverage&lt;/h3&gt;&lt;ul&gt;'+m.topics.map(x=&gt;'&lt;li&gt;'+esc(x)+'&lt;/li&gt;').join('')+'&lt;/ul&gt;&lt;/section&gt;&lt;div class=&quot;at-evidence&quot;&gt;This module shows the proposed scope. Its full explanation and claim-level source mapping remain to be drafted.&lt;/div&gt;')+`&lt;details&gt;&lt;summary&gt;Source basis and evidence status&lt;/summary&gt;&lt;p&gt;${w?w.source:['F: sections 2.3 and 4.3, Annex F. I: chapter 2 and sections 1.2 and 6.1.','F: sections 2.1–2.2, 4.1, 4.4 and Annex E. I: chapters 1, 3 and 4.','F: sections 4.2–4.4, 5 and Annexes G–K. I: chapters 3 and 5.','W: slides 5–16. C. F: sections 4.3.3–4.3.4 and 5. I: section 6.1.'][n-1]}&lt;/p&gt;${btn('Inspect source records','r3','at-link')}&lt;/details&gt;&lt;h2&gt;Continue across the Atlas&lt;/h2&gt;&lt;div class=&quot;at-related&quot;&gt;${(w?w.links:[n===1?'2.6':n===2?'3.4':n===3?'1.6':'4.6']).filter(x=&gt;x!==id).map(x=&gt;btn(modules.find(m=&gt;m.id===x).title+' ↗',x)).join('')}&lt;/div&gt;&lt;div class=&quot;at-bottom&quot;&gt;${idx?btn('← Previous module',ms[idx-1].id):btn('Journey overview','j'+n)}${idx&lt;ms.length-1?btn('Next module →',ms[idx+1].id):btn('Atlas overview','home')}&lt;/div&gt;`;}
+const refContent=[
+['Canonical definitions',['Workforce gap: demand minus supply, within the model’s stated scope and units.','Training intake, recruitment applications and successful selection are separate quantities.','Headcount, FTE, operational hours and utilisation require explicit definitions before comparison.'],'Definition records should preserve differences in source usage.'],
+['Regulation and policy records',['Instrument and provision','Jurisdiction, applicability date and version','Current requirement versus proposed change'],'Detailed regulatory records have not been verified for this preview.'],
+['Actors and responsibilities',['ANSPs: workforce planning, training resources and operational deployment.','Training providers: learning programmes and training capacity.','Authorities: relevant approval and oversight responsibilities.','European and national actors: coordination and enabling frameworks.'],'Illustrative actor mapping; responsibilities must be linked to the relevant measure and instrument.'],
+['Source records',[],'A source document and a finding extracted from it are separate records.'],
+['Case study records',['Operational setting and reported problem','Practice introduced and implementation conditions','Reported outcomes, evidence quality and transferability limits'],'Case narratives remain to be populated from the supplied reports.'],
+['Initiatives',['FINEST: locate within future operating concepts; preserve source-dated status.','EXODUS: the supplied intermediate report leaves substantive coverage for later completion.'],'Initiative existence is not evidence of a demonstrated workforce effect.'],
+['Technology records',['Function and task affected','Human responsibility and degraded-mode behaviour','Training implications and source-reported maturity'],'Technology descriptions should connect to tasks before drawing conclusions about competence or staffing.'],
+['Model and data records',['Final draft: supply–demand projection to 2036.','Intermediate report: earlier outlook to 2040.','Keep coverage, granularity, units, assumptions and version alongside every result.'],'Do not combine the two model versions into one continuous forecast.']];
+function reference(i){const [h,items,note]=refContent[i];main.innerHTML=btn('← Reference library','refs','at-link')+'&lt;div class=&quot;at-label&quot; style=&quot;margin-top:20px&quot;&gt;Shared reference layer&lt;/div&gt;&lt;h1&gt;'+h+'&lt;/h1&gt;'+(i===3?Object.entries(sources).map(([key,s])=&gt;`&lt;section class=&quot;at-detail&quot;&gt;&lt;div class=&quot;at-label&quot;&gt;${key} · ${s[1]}&lt;/div&gt;&lt;h3&gt;${s[0]}&lt;/h3&gt;&lt;p&gt;${s[2]}&lt;/p&gt;&lt;/section&gt;`).join(''):'&lt;section class=&quot;at-detail&quot;&gt;&lt;ul&gt;'+items.map(t=&gt;'&lt;li&gt;'+t+'&lt;/li&gt;').join('')+'&lt;/ul&gt;&lt;/section&gt;')+'&lt;div class=&quot;at-evidence&quot;&gt;'+note+'&lt;/div&gt;&lt;h2&gt;See it in context&lt;/h2&gt;'+btn(i===6||i===5||i===1?'Licensing and recognition options':'Unit training and operational qualification',i===6||i===5||i===1?'4.8':'1.6');}
+function library(){main.innerHTML='&lt;div class=&quot;at-label&quot;&gt;Available from every journey&lt;/div&gt;&lt;h1&gt;Shared reference library&lt;/h1&gt;&lt;p class=&quot;at-lead&quot;&gt;One record for each concept, source or actor. The journeys lead back to these same records.&lt;/p&gt;&lt;div class=&quot;at-grid&quot;&gt;'+refs.map((r,i)=&gt;`&lt;button type=&quot;button&quot; class=&quot;at-card&quot; data-go=&quot;r${i}&quot;&gt;&lt;h3&gt;${r[0]}&lt;/h3&gt;&lt;p&gt;${r[1]}&lt;/p&gt;&lt;span&gt;Inspect →&lt;/span&gt;&lt;/button&gt;`).join('')+'&lt;/div&gt;';}
+const steps=[{id:'1.6',label:'Pipeline',q:'Why might more intake fail to produce more qualified ATCOs?',body:'Unit training needs instructor time, assessment and suitable operational opportunities. These resources can constrain throughput.',rel:'Proposed mechanism'}, {id:'2.6',label:'Shortage',q:'How does this affect the supply outlook?',body:'Intake enters a training process with duration and success assumptions. Constrained progression can delay workforce replenishment.',rel:'Model interpretation'}, {id:'3.4',label:'Solutions',q:'Which responses address the bottleneck?',body:'Examine instructor capacity, training preparation and scheduling together. Increasing intake alone may leave the constraint in place.',rel:'Illustrative intervention portfolio'}, {id:'4.6',label:'Future ATCO',q:'What changes when training or recognition is redesigned?',body:'Identify which competence can transfer and which system or operating-environment differences still need training and assessment.',rel:'Workshop proposal'}];
+function walk(){const s=steps[step];main.innerHTML='&lt;div class=&quot;at-label&quot;&gt;Connected walkthrough&lt;/div&gt;&lt;h1&gt;One issue. Four perspectives.&lt;/h1&gt;&lt;p class=&quot;at-lead&quot;&gt;Unit training is the starting point. Each journey adds a different question to the same knowledge base.&lt;/p&gt;&lt;div class=&quot;at-steps&quot;&gt;'+steps.map((s,i)=&gt;`&lt;button type=&quot;button&quot; data-step=&quot;${i}&quot; class=&quot;${i===step?'active':''}&quot; aria-pressed=&quot;${i===step}&quot;&gt;${i+1}. ${s.label}&lt;/button&gt;`).join('')+`&lt;/div&gt;&lt;section class=&quot;at-detail&quot;&gt;&lt;div class=&quot;at-meta&quot;&gt;&lt;span&gt;Step ${step+1} of 4&lt;/span&gt;&lt;span class=&quot;at-tag&quot;&gt;${s.rel}&lt;/span&gt;&lt;/div&gt;&lt;h2&gt;${s.q}&lt;/h2&gt;&lt;p&gt;${s.body}&lt;/p&gt;${btn('Open the topic page →',s.id)}&lt;/section&gt;&lt;div class=&quot;at-bottom&quot;&gt;${step?'&lt;button type=&quot;button&quot; class=&quot;at-action&quot; data-step=&quot;'+(step-1)+'&quot;&gt;← Previous perspective&lt;/button&gt;':'&lt;span&gt;&lt;/span&gt;'}${step&lt;3?'&lt;button type=&quot;button&quot; class=&quot;at-action&quot; data-step=&quot;'+(step+1)+'&quot;&gt;Next perspective →&lt;/button&gt;':btn('Explore all journeys','home')}&lt;/div&gt;`;}
+function render(){renderNav();if(view==='home')home();else if(view==='refs')library();else if(view==='walk')walk();else if(view[0]==='j')journey(+view[1]);else if(view[0]==='r')reference(+view[1]);else topic(view);}
+root.addEventListener('click',e=&gt;{const b=e.target.closest('button');if(!b)return;if(b.dataset.go)go(b.dataset.go);if(b.dataset.step!==undefined){step=+b.dataset.step;render();}});
+render();
+if(globalThis.Tweak){const design={density:'Comfortable',corners:9};const t=new Tweak({container:root,onChange:()=&gt;{root.querySelector('main').style.padding=design.density==='Compact'?'18px':'26px';root.style.borderRadius=design.corners+'px';}});t.addSelect(design,'density',{label:'Reading density',options:['Comfortable','Compact']});t.addSlider(design,'corners',{label:'Window corners',min:0,max:18,step:1,unit:'px'});}
+})();
+&lt;/script&gt;
+&lt;/div&gt;
+
+
+&lt;style id=&quot;codex-visualization-document-scrollbar&quot;&gt;html,body{scrollbar-width:none!important}html::-webkit-scrollbar,body::-webkit-scrollbar{display:none!important}&lt;/style&gt;
+
+&lt;script src=&quot;https://unpkg.com/@floating-ui/core@1.7.3/dist/floating-ui.core.umd.min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;https://unpkg.com/@floating-ui/dom@1.7.4/dist/floating-ui.dom.umd.min.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+(() =&gt; {
+  if (window.FloatingUIDOM == null) {
+    return;
+  }
+  const { autoUpdate, computePosition, flip, offset, shift, size } =
+    window.FloatingUIDOM;
+  const tooltipPlacements = new Set([&quot;top&quot;, &quot;right&quot;, &quot;bottom&quot;, &quot;left&quot;]);
+  const tooltipId = `codex-visualization-tooltip-${
+    window.crypto?.randomUUID?.() ?? Date.now().toString(36)
+  }`;
+  const tooltipGap = 5;
+  const hoverDelay = 700;
+  const skipDelay = 300;
+  let activeTrigger = null;
+  let pendingTrigger = null;
+  let tooltip = null;
+  let openTimeout = null;
+  let autoUpdateCleanup = null;
+  let positionRequest = 0;
+  let skipDelayUntil = 0;
+  let lastPointerWasTouch = false;
+  let pinnedByTouch = false;
+
+  const getTrigger = (target) =&gt;
+    target?.nodeType === Node.ELEMENT_NODE
+      ? target.closest(&quot;[data-tooltip]&quot;)
+      : null;
+  const containsTarget = (trigger, target) =&gt;
+    target?.nodeType != null &amp;&amp; trigger.contains(target);
+  const getContent = (trigger) =&gt;
+    trigger.getAttribute(&quot;data-tooltip&quot;)?.trim() ?? &quot;&quot;;
+  const getPlacement = (trigger) =&gt; {
+    const placement = trigger.getAttribute(&quot;data-tooltip-placement&quot;);
+    return tooltipPlacements.has(placement) ? placement : &quot;top&quot;;
+  };
+  const getTooltip = () =&gt; {
+    if (tooltip == null) {
+      tooltip = document.createElement(&quot;div&quot;);
+      tooltip.id = tooltipId;
+      tooltip.className = &quot;tooltip&quot;;
+      tooltip.setAttribute(&quot;role&quot;, &quot;tooltip&quot;);
+    }
+    return tooltip;
+  };
+  const setDescribedBy = (trigger, described) =&gt; {
+    const ids = new Set(
+      (trigger.getAttribute(&quot;aria-describedby&quot;) ?? &quot;&quot;)
+        .split(/\s+/)
+        .filter(Boolean),
+    );
+    if (described) {
+      ids.add(tooltipId);
+    } else {
+      ids.delete(tooltipId);
+    }
+    if (ids.size === 0) {
+      trigger.removeAttribute(&quot;aria-describedby&quot;);
+    } else {
+      trigger.setAttribute(&quot;aria-describedby&quot;, [...ids].join(&quot; &quot;));
+    }
+  };
+  const clearOpenTimeout = () =&gt; {
+    if (openTimeout != null) {
+      window.clearTimeout(openTimeout);
+      openTimeout = null;
+    }
+    pendingTrigger = null;
+  };
+  const closeTooltip = (activateSkipDelay = true) =&gt; {
+    clearOpenTimeout();
+    pinnedByTouch = false;
+    positionRequest += 1;
+    autoUpdateCleanup?.();
+    autoUpdateCleanup = null;
+    if (activeTrigger == null) {
+      return;
+    }
+    setDescribedBy(activeTrigger, false);
+    activeTrigger = null;
+    tooltip?.remove();
+    if (activateSkipDelay) {
+      skipDelayUntil = Date.now() + skipDelay;
+    }
+  };
+  const updatePosition = (trigger, floating) =&gt; {
+    const request = ++positionRequest;
+    void computePosition(trigger, floating, {
+      middleware: [
+        offset(tooltipGap),
+        flip({ padding: tooltipGap }),
+        shift({ padding: tooltipGap }),
+        size({
+          padding: tooltipGap,
+          apply({ availableHeight, availableWidth, elements }) {
+            elements.floating.style.setProperty(
+              &quot;--tooltip-available-width&quot;,
+              `${Math.max(0, availableWidth)}px`,
+            );
+            elements.floating.style.setProperty(
+              &quot;--tooltip-available-height&quot;,
+              `${Math.max(0, availableHeight)}px`,
+            );
+          },
+        }),
+      ],
+      placement: getPlacement(trigger),
+      strategy: &quot;fixed&quot;,
+    })
+      .then(({ x, y }) =&gt; {
+        if (activeTrigger !== trigger || request !== positionRequest) {
+          return;
+        }
+        const scale = window.devicePixelRatio || 1;
+        floating.style.transform = `translate(${Math.round(x * scale) / scale}px, ${Math.round(y * scale) / scale}px)`;
+        floating.style.visibility = &quot;visible&quot;;
+      })
+      .catch(() =&gt; {
+        if (activeTrigger === trigger &amp;&amp; request === positionRequest) {
+          closeTooltip(false);
+        }
+      });
+  };
+  const openTooltip = (trigger) =&gt; {
+    const content = getContent(trigger);
+    if (!trigger.isConnected || content.length === 0) {
+      return;
+    }
+    clearOpenTimeout();
+    if (activeTrigger === trigger) {
+      return;
+    }
+    closeTooltip();
+    const floating = getTooltip();
+    floating.textContent = content;
+    floating.style.visibility = &quot;hidden&quot;;
+    floating.style.transform = &quot;translate(0, 0)&quot;;
+    document.body.appendChild(floating);
+    activeTrigger = trigger;
+    setDescribedBy(trigger, true);
+    autoUpdateCleanup = autoUpdate(trigger, floating, () =&gt; {
+      updatePosition(trigger, floating);
+    });
+  };
+  const requestOpen = (trigger, immediate = false) =&gt; {
+    if (
+      getContent(trigger).length === 0 ||
+      activeTrigger === trigger ||
+      pendingTrigger === trigger
+    ) {
+      return;
+    }
+    clearOpenTimeout();
+    pendingTrigger = trigger;
+    const delay =
+      immediate || activeTrigger != null || Date.now() &lt; skipDelayUntil
+        ? 0
+        : hoverDelay;
+    if (delay === 0) {
+      openTooltip(trigger);
+      return;
+    }
+    openTimeout = window.setTimeout(() =&gt; {
+      openTimeout = null;
+      pendingTrigger = null;
+      openTooltip(trigger);
+    }, delay);
+  };
+  const handlePointerOpen = (event) =&gt; {
+    if (event.pointerType === &quot;touch&quot;) {
+      return;
+    }
+    const trigger = getTrigger(event.target);
+    if (trigger == null || containsTarget(trigger, event.relatedTarget)) {
+      return;
+    }
+    requestOpen(trigger);
+  };
+  const handlePointer = (event) =&gt; {
+    lastPointerWasTouch =
+      event.type === &quot;pointerdown&quot; &amp;&amp; event.pointerType === &quot;touch&quot;;
+  };
+  const handleTouchClick = (event) =&gt; {
+    const isTouch = event.pointerType === &quot;touch&quot; || lastPointerWasTouch;
+    lastPointerWasTouch = false;
+    if (!isTouch || event.detail === 0) {
+      return;
+    }
+    const trigger = getTrigger(event.target);
+    if (
+      trigger == null ||
+      !trigger.isConnected ||
+      getContent(trigger).length === 0 ||
+      (pinnedByTouch &amp;&amp; activeTrigger === trigger)
+    ) {
+      if (pinnedByTouch) {
+        closeTooltip();
+      }
+      return;
+    }
+    openTooltip(trigger);
+    pinnedByTouch = activeTrigger === trigger;
+    window.setTimeout(() =&gt; {
+      if (activeTrigger === trigger &amp;&amp; !trigger.isConnected) {
+        closeTooltip(false);
+      }
+    }, 0);
+  };
+  const handleLeave = (event) =&gt; {
+    if (pinnedByTouch) {
+      return;
+    }
+    const trigger = getTrigger(event.target);
+    if (trigger == null || containsTarget(trigger, event.relatedTarget)) {
+      return;
+    }
+    if (activeTrigger === trigger || pendingTrigger === trigger) {
+      closeTooltip();
+    }
+  };
+  const handleFocusIn = (event) =&gt; {
+    const trigger = getTrigger(event.target);
+    if (trigger?.matches(&quot;:focus-visible&quot;)) {
+      requestOpen(trigger, true);
+    }
+  };
+  const handleKeyDown = (event) =&gt; {
+    if (event.key === &quot;Escape&quot;) {
+      closeTooltip();
+    }
+  };
+  const handleContextMenu = (event) =&gt; {
+    lastPointerWasTouch = false;
+    const trigger = getTrigger(event.target);
+    if (activeTrigger === trigger || pendingTrigger === trigger) {
+      closeTooltip();
+    }
+  };
+  const destroy = () =&gt; {
+    closeTooltip(false);
+    lastPointerWasTouch = false;
+    document.removeEventListener(&quot;pointerover&quot;, handlePointerOpen);
+    document.removeEventListener(&quot;pointerdown&quot;, handlePointer);
+    document.removeEventListener(&quot;pointercancel&quot;, handlePointer);
+    document.removeEventListener(&quot;click&quot;, handleTouchClick);
+    document.removeEventListener(&quot;pointerout&quot;, handleLeave);
+    document.removeEventListener(&quot;focusin&quot;, handleFocusIn);
+    document.removeEventListener(&quot;focusout&quot;, handleLeave);
+    document.removeEventListener(&quot;keydown&quot;, handleKeyDown);
+    document.removeEventListener(&quot;contextmenu&quot;, handleContextMenu);
+    tooltip = null;
+  };
+
+  document.addEventListener(&quot;pointerover&quot;, handlePointerOpen);
+  document.addEventListener(&quot;pointerdown&quot;, handlePointer);
+  document.addEventListener(&quot;pointercancel&quot;, handlePointer);
+  document.addEventListener(&quot;click&quot;, handleTouchClick);
+  document.addEventListener(&quot;pointerout&quot;, handleLeave);
+  document.addEventListener(&quot;focusin&quot;, handleFocusIn);
+  document.addEventListener(&quot;focusout&quot;, handleLeave);
+  document.addEventListener(&quot;keydown&quot;, handleKeyDown);
+  document.addEventListener(&quot;contextmenu&quot;, handleContextMenu);
+  window.addEventListener(&quot;pagehide&quot;, destroy, { once: true });
+})();
+&lt;/script&gt;
+&lt;script id=&quot;codex-visualization-tabs&quot;&gt;
+(() =&gt; {
+  const selector = '.nav[role=&quot;tablist&quot;] [role=&quot;tab&quot;]';
+  const disabled = ':disabled,[aria-disabled=&quot;true&quot;]';
+  const selectTab = (selected) =&gt; {
+    const panelId = selected.getAttribute(&quot;aria-controls&quot;);
+    for (const tab of selected.closest('[role=&quot;tablist&quot;]').querySelectorAll('[role=&quot;tab&quot;]')) {
+      const active = tab === selected;
+      tab.classList.toggle(&quot;active&quot;, active);
+      tab.setAttribute(&quot;aria-selected&quot;, String(active));
+      const id = tab.getAttribute(&quot;aria-controls&quot;);
+      const panel = id &amp;&amp; document.getElementById(id);
+      if (panel != null) {
+        panel.hidden = id !== panelId;
+        if (!panel.hidden &amp;&amp; selected.id) {
+          panel.setAttribute(&quot;aria-labelledby&quot;, selected.id);
+        }
+      }
+    }
+  };
+  const interact = (event) =&gt; {
+    const tab = event.target?.closest?.(selector);
+    if (event.defaultPrevented || tab == null || tab.matches(disabled)) {
+      return;
+    }
+    if (event.type === &quot;click&quot;) {
+      selectTab(tab);
+      return;
+    }
+    const tabs = Array.from(
+      tab.closest('[role=&quot;tablist&quot;]').querySelectorAll('[role=&quot;tab&quot;]'),
+    ).filter((candidate) =&gt; !candidate.matches(disabled));
+    const current = tabs.indexOf(tab);
+    let next;
+    if (event.key === &quot;ArrowRight&quot; || event.key === &quot;ArrowDown&quot;) {
+      next = (current + 1) % tabs.length;
+    } else if (event.key === &quot;ArrowLeft&quot; || event.key === &quot;ArrowUp&quot;) {
+      next = (current + tabs.length - 1) % tabs.length;
+    } else if (event.key === &quot;Home&quot;) {
+      next = 0;
+    } else if (event.key === &quot;End&quot;) {
+      next = tabs.length - 1;
+    } else {
+      return;
+    }
+    event.preventDefault();
+    tabs[next].focus();
+    selectTab(tabs[next]);
+  };
+
+  for (const list of document.querySelectorAll('.nav[role=&quot;tablist&quot;]')) {
+    const selected =
+      list.querySelector('[role=&quot;tab&quot;][aria-selected=&quot;true&quot;]') ??
+      list.querySelector('[role=&quot;tab&quot;].active') ??
+      list.querySelector('[role=&quot;tab&quot;]');
+    if (selected != null) {
+      selectTab(selected);
+    }
+  }
+  document.addEventListener(&quot;click&quot;, interact);
+  document.addEventListener(&quot;keydown&quot;, interact);
+  window.addEventListener(&quot;pagehide&quot;, () =&gt; {
+    document.removeEventListener(&quot;click&quot;, interact);
+    document.removeEventListener(&quot;keydown&quot;, interact);
+  }, { once: true });
+})();
+&lt;/script&gt;
+&lt;script id=&quot;codex-visualization-lucide&quot; async src=&quot;https://unpkg.com/lucide@1.17.0/dist/umd/lucide.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+(() =&gt; {
+  const initialize = () =&gt; {
+    globalThis.lucide?.createIcons({ attrs: { width: 16, height: 16 } });
+  };
+  if (globalThis.lucide != null) {
+    initialize();
+    return;
+  }
+  document
+    .getElementById(&quot;codex-visualization-lucide&quot;)
+    ?.addEventListener(&quot;load&quot;, initialize, { once: true });
+})();
+&lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+"></iframe>
+<script>(() => {
+  const frame = document.getElementById("codex-visualization");
+  if (!(frame instanceof HTMLIFrameElement)) {
+    return;
+  }
+  let viewportHeight = globalThis.innerHeight;
+
+  const channel = new MessageChannel();
+  channel.port1.addEventListener("message", (event) => {
+    const data = event.data;
+    if (typeof data !== "object" || data == null) {
+      return;
+    }
+    if (data.type === "height") {
+      const height = data.height;
+      if (
+        typeof height === "number" &&
+        Number.isFinite(height) &&
+        height >= 0 &&
+        height <= 10_000
+      ) {
+        frame.style.height = Math.ceil(height) + "px";
+      }
+      return;
+    }
+    if (data.type === "scroll-to") {
+      const top = data.top;
+      if (
+        typeof top === "number" &&
+        Number.isFinite(top) &&
+        top >= 0 &&
+        globalThis.navigator.userActivation?.isActive === true
+      ) {
+        globalThis.scrollTo({
+          top: Math.ceil(
+            globalThis.scrollY + frame.getBoundingClientRect().top + top,
+          ),
+        });
+      }
+      return;
+    }
+    if (data.type === "open-external") {
+      const rawHref = data.href;
+      if (typeof rawHref !== "string") {
+        return;
+      }
+      let href;
+      try {
+        const url = new URL(rawHref, document.baseURI);
+        if (url.protocol !== "https:") {
+          return;
+        }
+        href = url.href;
+      } catch {
+        return;
+      }
+      if (globalThis.navigator.userActivation?.isActive === true) {
+        const anchor = document.createElement("a");
+        anchor.href = href;
+        anchor.rel = "noopener noreferrer";
+        anchor.target = "_blank";
+        document.body.appendChild(anchor);
+        anchor.click();
+        anchor.remove();
+      }
+      return;
+    }
+    if (data.type === "follow-up") {
+      const prompt = data.prompt;
+      if (
+        typeof prompt !== "string" ||
+        globalThis.navigator.userActivation?.isActive !== true
+      ) {
+        return;
+      }
+      const title = data.title;
+      globalThis.prompt(typeof title === "string" ? title : prompt, prompt);
+    }
+  });
+  channel.port1.start();
+  const srcdoc = frame.dataset.srcdoc;
+  if (srcdoc == null) {
+    return;
+  }
+  globalThis.addEventListener("resize", () => {
+    const height = Number.parseFloat(frame.style.height);
+    if (!Number.isFinite(height) || height <= viewportHeight) {
+      frame.style.removeProperty("height");
+    }
+    viewportHeight = globalThis.innerHeight;
+    channel.port1.postMessage({ type: "measure" });
+  });
+  frame.addEventListener(
+    "load",
+    () => {
+      frame.contentWindow?.postMessage(
+        { type: "codex-visualization-initialize" },
+        "*",
+        [channel.port2],
+      );
+    },
+    { once: true },
+  );
+  frame.srcdoc = srcdoc;
+  delete frame.dataset.srcdoc;
+})();
+</script>
+</body>
+</html>

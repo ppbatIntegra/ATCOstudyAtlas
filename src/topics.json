@@ -1,0 +1,808 @@
+{
+  "modules": [
+    {
+      "id": "1.1",
+      "title": "The system and its context",
+      "topics": [
+        "ATCO management cycle",
+        "individual career versus organisational workforce",
+        "ANSP characteristics",
+        "governance",
+        "external conditions",
+        "links between hiring, training and operations"
+      ],
+      "outcome": "The boundaries of the system and who makes the relevant decisions."
+    },
+    {
+      "id": "1.2",
+      "title": "Strategic workforce planning",
+      "topics": [
+        "Traffic and staffing requirements",
+        "planning horizons",
+        "recruitment and training lead times",
+        "retirement forecasts",
+        "uncertainty",
+        "alignment of training capacity and planned intake"
+      ],
+      "outcome": "How operational needs become workforce and training decisions."
+    },
+    {
+      "id": "1.3",
+      "title": "Attracting and recruiting candidates",
+      "topics": [
+        "Profession awareness",
+        "applicant pools",
+        "entry requirements",
+        "financial and other barriers",
+        "international recruitment",
+        "attractiveness"
+      ],
+      "outcome": "How the system develops an accessible pool of suitable candidates."
+    },
+    {
+      "id": "1.4",
+      "title": "Selecting for successful progression",
+      "topics": [
+        "Aptitude and trainability",
+        "behavioural attributes",
+        "selection stages",
+        "medical eligibility",
+        "predictive validity",
+        "feedback from training and operations"
+      ],
+      "outcome": "How selection affects both intake and later training outcomes."
+    },
+    {
+      "id": "1.5",
+      "title": "Initial training",
+      "topics": [
+        "Basic and rating training",
+        "theory and simulation",
+        "generic versus locally relevant content",
+        "instructor and simulator resources",
+        "independent practice",
+        "transition readiness"
+      ],
+      "outcome": "What is developed before unit training and how preparation affects the next stage."
+    },
+    {
+      "id": "1.6",
+      "title": "Unit training and operational qualification",
+      "topics": [
+        "Transitional training and pre-OJT",
+        "OJT",
+        "instructor and assessor availability",
+        "training opportunities in live traffic",
+        "progression and assessment",
+        "training duration and success",
+        "unit endorsement"
+      ],
+      "outcome": "How trainees reach operational qualification and why throughput can become constrained."
+    },
+    {
+      "id": "1.7",
+      "title": "Sector qualifications and licensing",
+      "topics": [
+        "Sector-specific training",
+        "endorsement coverage and grouping",
+        "licensing architecture",
+        "recognition and transfer processes",
+        "responsibilities for approval and assessment"
+      ],
+      "outcome": "How qualification scope shapes subsequent deployment. Legal detail belongs in linked verified regulation records."
+    },
+    {
+      "id": "1.8",
+      "title": "Deployment and operational work",
+      "topics": [
+        "Rostering",
+        "sector opening plans",
+        "availability of the required endorsements",
+        "duty time",
+        "utilisation",
+        "working methods",
+        "airspace organisation",
+        "productivity",
+        "allocation between operations and training"
+      ],
+      "outcome": "How qualified staff become usable operational capacity."
+    },
+    {
+      "id": "1.9",
+      "title": "Sustaining and adapting the workforce",
+      "topics": [
+        "Competence maintenance and currency",
+        "continuation and change-related training",
+        "wellbeing and working conditions",
+        "retention",
+        "career development",
+        "instructor roles",
+        "mobility",
+        "retirement and attrition"
+      ],
+      "outcome": "Why workforce supply and deployability continue to change after initial qualification."
+    },
+    {
+      "id": "1.10",
+      "title": "Post-operations learning",
+      "topics": [
+        "Performance monitoring",
+        "operational feedback",
+        "identification of capacity constraints",
+        "lessons for training, rostering, working methods and planning"
+      ],
+      "outcome": "How experience changes the next planning and training cycle."
+    },
+    {
+      "id": "2.1",
+      "title": "What do we mean by shortage?",
+      "topics": [
+        "Staffing requirement",
+        "available workforce",
+        "ATCO gap",
+        "local versus aggregate imbalance",
+        "staffing shortfall versus capacity shortfall",
+        "measurement scope"
+      ],
+      "outcome": "Which question a shortage measure answers and what it leaves out."
+    },
+    {
+      "id": "2.2",
+      "title": "Reading the evidence",
+      "topics": [
+        "Headcount and FTE",
+        "ATCOs in OPS",
+        "hours on duty",
+        "utilisation",
+        "productivity",
+        "traffic measures",
+        "delay categories",
+        "training and workforce data",
+        "comparability and missing data"
+      ],
+      "outcome": "The meaning and limitations of the indicators before comparing them."
+    },
+    {
+      "id": "2.3",
+      "title": "What has changed over time?",
+      "topics": [
+        "Workforce trends",
+        "hours and productivity trends",
+        "traffic and delay evolution",
+        "planned versus actual staffing",
+        "pandemic disruption",
+        "variation between ANSPs and ACCs"
+      ],
+      "outcome": "How different components evolved and where they diverged."
+    },
+    {
+      "id": "2.4",
+      "title": "Where do shortages become visible?",
+      "topics": [
+        "Local patterns",
+        "network contribution",
+        "staffing and capacity delay evidence",
+        "operational constraints",
+        "retrospective ANSP cases",
+        "triangulation with interviews and surveys"
+      ],
+      "outcome": "Why an indicator can motivate investigation without by itself establishing a cause."
+    },
+    {
+      "id": "2.5",
+      "title": "How workforce demand is formed",
+      "topics": [
+        "Traffic volume and patterns",
+        "productivity",
+        "utilisation",
+        "annual staff hours",
+        "operational context and complexity",
+        "deployment constraints"
+      ],
+      "outcome": "How traffic demand becomes an estimated requirement for controllers. Separate explicit model variables from contextual influences."
+    },
+    {
+      "id": "2.6",
+      "title": "How workforce supply evolves",
+      "topics": [
+        "Starting workforce",
+        "training intake",
+        "training duration",
+        "success rate",
+        "phase capacity",
+        "retirements",
+        "attrition",
+        "transfers and mobility"
+      ],
+      "outcome": "How inflows, outflows and lead times change supply. Distinguish modelled flows from additional conceptual relationships."
+    },
+    {
+      "id": "2.7",
+      "title": "The supply–demand model",
+      "topics": [
+        "Model purpose and boundary",
+        "demand and supply calculations",
+        "baseline",
+        "ACC results and aggregation",
+        "gap sign and units",
+        "data provenance",
+        "validation and limitations"
+      ],
+      "outcome": "What is calculated, at what scale, and with which assumptions."
+    },
+    {
+      "id": "2.8",
+      "title": "Scenarios, sensitivity and uncertainty",
+      "topics": [
+        "Traffic scenarios",
+        "productivity assumptions",
+        "intake scenarios",
+        "sensitivity to individual variables",
+        "time to effect",
+        "interactions and bottlenecks",
+        "historical model versions"
+      ],
+      "outcome": "Why a projected outcome is conditional and why a sensitive variable is not automatically an easy policy lever."
+    },
+    {
+      "id": "2.9",
+      "title": "What follows from the analysis?",
+      "topics": [
+        "Which drivers merit attention",
+        "which constraints limit intervention effects",
+        "local applicability",
+        "evidence gaps",
+        "links to intervention portfolios"
+      ],
+      "outcome": "How analysis informs action without claiming to prove the effect of every proposed solution."
+    },
+    {
+      "id": "3.1",
+      "title": "Recognising the problem",
+      "topics": [
+        "Workforce gap",
+        "insufficient training output",
+        "poor deployment flexibility",
+        "mismatch with traffic",
+        "uncertainty in future staffing",
+        "operational consequences"
+      ],
+      "outcome": "The outcome requiring attention, before assuming its cause."
+    },
+    {
+      "id": "3.2",
+      "title": "Challenges and their causes",
+      "topics": [
+        "Planning and governance constraints",
+        "candidate suitability",
+        "training resources",
+        "progression and assessment",
+        "endorsement and mobility constraints",
+        "rostering",
+        "technology and working methods",
+        "feedback weaknesses"
+      ],
+      "outcome": "The mechanism behind a challenge, with reported observations distinguished from causal interpretation."
+    },
+    {
+      "id": "3.3",
+      "title": "How interventions can work",
+      "topics": [
+        "Improve planning",
+        "improve entry and selection",
+        "increase training throughput",
+        "retain competence",
+        "improve deployment",
+        "improve operational productivity",
+        "enable recognition and cooperation"
+      ],
+      "outcome": "The route through which a measure might change the workforce situation."
+    },
+    {
+      "id": "3.4",
+      "title": "Measures and practices",
+      "topics": [
+        "Existing reported practices",
+        "proposed future practices",
+        "implementation examples",
+        "alternatives",
+        "prerequisites",
+        "relevant contexts",
+        "limits of transferability"
+      ],
+      "outcome": "What a particular intervention actually involves and the basis for expecting benefits."
+    },
+    {
+      "id": "3.5",
+      "title": "Assessing and prioritising",
+      "topics": [
+        "Challenge prevalence and severity",
+        "study importance score",
+        "feasibility",
+        "implementation dependencies",
+        "time to effect",
+        "affected model variables",
+        "evidence quality"
+      ],
+      "outcome": "How the study ranked measures and what that ranking does and does not establish."
+    },
+    {
+      "id": "3.6",
+      "title": "Building an intervention portfolio",
+      "topics": [
+        "Complementary measures",
+        "sequencing",
+        "bottlenecks",
+        "competition for resources",
+        "near-term and longer-term effects",
+        "local selection of measures"
+      ],
+      "outcome": "Why a package may be necessary and why effects should not simply be added together."
+    },
+    {
+      "id": "3.7",
+      "title": "Responsibilities and implementation",
+      "topics": [
+        "ANSP actions",
+        "national and European enablers",
+        "training providers",
+        "technology providers",
+        "workforce participation",
+        "ownership and dependencies"
+      ],
+      "outcome": "Who must act and what requires coordination."
+    },
+    {
+      "id": "3.8",
+      "title": "Monitoring and learning",
+      "topics": [
+        "Baseline",
+        "intended outcomes",
+        "indicators",
+        "milestones",
+        "review of unintended effects",
+        "operational feedback"
+      ],
+      "outcome": "How to determine whether a measure is producing the intended result."
+    },
+    {
+      "id": "4.1",
+      "title": "Why the system may change",
+      "topics": [
+        "Workforce constraints",
+        "capacity and resilience",
+        "flexibility of service provision",
+        "technology opportunities",
+        "uncertainty"
+      ],
+      "outcome": "The problems and objectives motivating change."
+    },
+    {
+      "id": "4.2",
+      "title": "Future operating concepts",
+      "topics": [
+        "Dynamic airspace and sector configurations",
+        "cross-border service provision",
+        "virtual service provision",
+        "delegation of services",
+        "physical and virtual mobility",
+        "harmonised working methods"
+      ],
+      "outcome": "The intended organisation of operations and its implications for people."
+    },
+    {
+      "id": "4.3",
+      "title": "Technical systems and automation",
+      "topics": [
+        "ATM systems and HMI",
+        "decision support",
+        "automation and AI",
+        "stages of information processing",
+        "allocation of authority",
+        "interoperability",
+        "degraded modes"
+      ],
+      "outcome": "What the systems do and under what conditions their use changes human work."
+    },
+    {
+      "id": "4.4",
+      "title": "Tasks and human roles",
+      "topics": [
+        "ATCO task decomposition",
+        "conflict-management example",
+        "Perform, Approve, Supervise, Intervene and No longer licence-critical",
+        "current and possible future task profiles"
+      ],
+      "outcome": "Why task-level analysis is needed before drawing conclusions about the ATCO role."
+    },
+    {
+      "id": "4.5",
+      "title": "From tasks to competence",
+      "topics": [
+        "Aptitude",
+        "learning",
+        "knowledge",
+        "skills",
+        "behaviours and attitudes",
+        "competence",
+        "performance",
+        "task-to-competency relationships"
+      ],
+      "outcome": "The conceptual distinctions linking role requirements to demonstrated performance."
+    },
+    {
+      "id": "4.6",
+      "title": "The three competency domains",
+      "topics": [
+        "Core ATCO competence",
+        "technical-system competence",
+        "operational-environment competence",
+        "integrated performance under defined conditions"
+      ],
+      "outcome": "The workshop's proposed way to make the components of operational competence explicit."
+    },
+    {
+      "id": "4.7",
+      "title": "Training and assessment consequences",
+      "topics": [
+        "CBTA",
+        "generic foundations",
+        "representative environments",
+        "transition and pre-OJT",
+        "integration",
+        "gap assessment",
+        "delta training",
+        "evidence of performance"
+      ],
+      "outcome": "How learning and assessment could follow the required competence profile."
+    },
+    {
+      "id": "4.8",
+      "title": "Licensing and recognition options",
+      "topics": [
+        "Existing architecture as the reference point",
+        "proposed CBL",
+        "system-based licensing",
+        "non-geographic validation",
+        "recognition of prior competence",
+        "recognition boundaries"
+      ],
+      "outcome": "The distinct options under discussion and what each would need to recognise."
+    },
+    {
+      "id": "4.9",
+      "title": "Applications and worked cases",
+      "topics": [
+        "Moving between similar ACCs",
+        "new HMI or ATM system",
+        "different procedures or traffic characteristics",
+        "cross-border service provision",
+        "progressively automated tasks"
+      ],
+      "outcome": "What can potentially transfer and what still needs training and assessment."
+    },
+    {
+      "id": "4.10",
+      "title": "Transition and evaluation",
+      "topics": [
+        "Evidence needed to establish equivalence",
+        "integrated operational performance",
+        "roles of authorities and providers",
+        "implementation sequencing",
+        "transition training demand",
+        "demonstrated workforce effects"
+      ],
+      "outcome": "What remains to be developed and tested before a concept can support operational use."
+    }
+  ],
+  "journeys": [
+    {
+      "title": "The ATCO Pipeline",
+      "short": "ATCO Pipeline",
+      "q": "How do people become—and remain—available for operational service?",
+      "route": [
+        "Plan",
+        "Attract & select",
+        "Train & qualify",
+        "Deploy",
+        "Sustain",
+        "Learn & replan"
+      ],
+      "desc": "Follow the workforce management cycle and see how one stage constrains the next."
+    },
+    {
+      "title": "Understanding the ATCO Shortage",
+      "short": "Understanding shortage",
+      "q": "What does the evidence show, and how might the workforce gap evolve?",
+      "route": [
+        "Define",
+        "Observe",
+        "Diagnose",
+        "Model",
+        "Explore uncertainty"
+      ],
+      "desc": "Move from the meaning of shortage to evidence, mechanisms and conditional projections."
+    },
+    {
+      "title": "Challenges & Solutions",
+      "short": "Challenges & solutions",
+      "q": "What can be changed, how could it work, and who needs to act?",
+      "route": [
+        "Recognise",
+        "Explain",
+        "Inspect measures",
+        "Assess",
+        "Implement",
+        "Learn"
+      ],
+      "desc": "Connect a problem to measures, prerequisites and the limits of the available evidence."
+    },
+    {
+      "title": "The Future ATCO",
+      "short": "Future ATCO",
+      "q": "How could changing operations reshape tasks, competence and licensing?",
+      "route": [
+        "Operations",
+        "Systems",
+        "Tasks",
+        "Competence",
+        "Training",
+        "Recognition"
+      ],
+      "desc": "Follow the reasoning from a changed technical function to a qualification question."
+    }
+  ],
+  "refs": [
+    [
+      "Definitions",
+      "Terms, scope and distinctions across sources."
+    ],
+    [
+      "Regulation & policy",
+      "Instruments, provisions, dates and status."
+    ],
+    [
+      "Stakeholders",
+      "Responsibilities and dependencies."
+    ],
+    [
+      "Sources & evidence",
+      "Documents, findings, methods and qualifications."
+    ],
+    [
+      "Case studies",
+      "Context, reported practice and outcome evidence."
+    ],
+    [
+      "Initiatives",
+      "Objectives, dated status and available outputs."
+    ],
+    [
+      "Technologies",
+      "Functions, human interaction and training implications."
+    ],
+    [
+      "Data & methods",
+      "Coverage, units, assumptions and model versions."
+    ]
+  ],
+  "sources": {
+    "F": [
+      "Draft Final Report",
+      "September 2026 • Revision 0.0 • Draft dated 7 September",
+      "Primary study synthesis. Findings and recommendations retain draft status."
+    ],
+    "I": [
+      "Intermediate Report",
+      "June 2026 • Revision 2.0",
+      "Earlier analysis and outlook to 2040. Keep separate from the later 2036 model."
+    ],
+    "W": [
+      "Competency-based licensing workshop",
+      "3 September 2026",
+      "Conceptual proposals on tasks, competence and licensing; not adopted regulatory requirements."
+    ],
+    "C": [
+      "CBL one pager",
+      "Supplied study working material",
+      "Short conceptual introduction to CBTA and proposed CBL."
+    ]
+  },
+  "worked": {
+    "1.6": {
+      "status": "Worked example · Atlas synthesis",
+      "intro": "Unit training connects prior learning to performance in a particular operational setting. Its output depends on training opportunities, instructors, assessment and progression—not just the number of trainees entering.",
+      "heading": "Where the bottleneck can arise",
+      "items": [
+        "Operational staffing pressure can reduce the staff available to instruct.",
+        "Limited instructor availability can constrain training throughput.",
+        "Slower qualification delays the replenishment of the operational workforce."
+      ],
+      "limit": "This feedback chain is an Atlas synthesis of mechanisms discussed in the study, not a separately quantified feedback model.",
+      "source": "F: sections 2.3 and 4.3, Annex F. I: chapter 2.",
+      "links": [
+        "2.6",
+        "3.4",
+        "4.7"
+      ],
+      "key": "Training throughput"
+    },
+    "2.6": {
+      "status": "Worked example · Model interpretation",
+      "intro": "Workforce supply evolves through inflows, outflows and training lead times. More training intake today is not the same as more qualified operational staff today.",
+      "heading": "Read the supply chain",
+      "items": [
+        "Starting workforce provides the baseline.",
+        "Training intake, duration and success determine the timing and scale of new qualification.",
+        "Retirements and other attrition reduce the available workforce.",
+        "Transfers change local supply; they need not increase total European supply."
+      ],
+      "limit": "Transfers are shown here as a boundary consideration, not asserted to be an explicit variable in the final report model.",
+      "source": "F: section 2.2 and Annex E. I: chapter 4 (earlier model version).",
+      "links": [
+        "1.6",
+        "2.8",
+        "3.4"
+      ],
+      "key": "Supply and lead times"
+    },
+    "3.4": {
+      "status": "Worked example · Reported / proposed measures",
+      "intro": "A response to constrained unit-training output can combine instructor resources, training design and the scheduling of training opportunities.",
+      "heading": "An intervention portfolio to examine",
+      "items": [
+        "Dedicated instructor functions or instructor and assessor pools.",
+        "Competency-based progression and suitable preparation before operational training.",
+        "Timing training against operational demand.",
+        "Monitoring completion, duration and operational staffing effects together."
+      ],
+      "limit": "This is an illustrative combination, not a package with a demonstrated combined effect. The study’s “Best Practice” label is not by itself proof of effectiveness.",
+      "source": "F: sections 4.2–4.4 and Annexes G–K. Portfolio grouping: Atlas proposal.",
+      "links": [
+        "1.6",
+        "2.6",
+        "3.7",
+        "3.8"
+      ],
+      "key": "Training measures"
+    },
+    "4.6": {
+      "status": "Worked example · Workshop proposal",
+      "intro": "The workshop proposes three domains to distinguish what might transfer between settings and what may need further training and assessment.",
+      "heading": "Three domains, integrated performance",
+      "items": [
+        "Core ATCO competence — common foundations of controller work.",
+        "Technical-system competence — competence with the relevant system and human–machine interface.",
+        "Operational-environment competence — competence for the relevant traffic, procedures and operating conditions."
+      ],
+      "limit": "The domains form a conceptual model, not an additive equation. Recognition still requires evidence of integrated performance under defined conditions.",
+      "source": "W: slides 5–16. C: CBL one pager.",
+      "links": [
+        "4.4",
+        "4.7",
+        "4.8",
+        "4.9"
+      ],
+      "key": "Competence domains"
+    },
+    "4.8": {
+      "status": "Worked example · Recognition proposal",
+      "intro": "Training and assessment establish evidence of competence. Formal recognition asks what that evidence authorises, in which conditions, and with what boundaries.",
+      "heading": "Keep the concepts distinct",
+      "items": [
+        "CBTA concerns training and assessment.",
+        "Proposed competency-based licensing concerns the basis for formal recognition.",
+        "System-based licensing and non-geographic validation are related options requiring their own definitions.",
+        "Cross-border service provision is an operational arrangement, not a synonym for a licensing model."
+      ],
+      "limit": "These are proposals for exploration. Regulatory records require verification against the instruments before publication.",
+      "source": "W: slides 5–16. C: CBL one pager. F: sections 4.3.3–4.3.4.",
+      "links": [
+        "4.6",
+        "4.9",
+        "1.7"
+      ],
+      "key": "Recognition boundaries"
+    }
+  },
+  "refContent": [
+    [
+      "Canonical definitions",
+      [
+        "Workforce gap: demand minus supply, within the model’s stated scope and units.",
+        "Training intake, recruitment applications and successful selection are separate quantities.",
+        "Headcount, FTE, operational hours and utilisation require explicit definitions before comparison."
+      ],
+      "Definition records should preserve differences in source usage."
+    ],
+    [
+      "Regulation and policy records",
+      [
+        "Instrument and provision",
+        "Jurisdiction, applicability date and version",
+        "Current requirement versus proposed change"
+      ],
+      "Detailed regulatory records have not been verified for this preview."
+    ],
+    [
+      "Actors and responsibilities",
+      [
+        "ANSPs: workforce planning, training resources and operational deployment.",
+        "Training providers: learning programmes and training capacity.",
+        "Authorities: relevant approval and oversight responsibilities.",
+        "European and national actors: coordination and enabling frameworks."
+      ],
+      "Illustrative actor mapping; responsibilities must be linked to the relevant measure and instrument."
+    ],
+    [
+      "Source records",
+      [],
+      "A source document and a finding extracted from it are separate records."
+    ],
+    [
+      "Case study records",
+      [
+        "Operational setting and reported problem",
+        "Practice introduced and implementation conditions",
+        "Reported outcomes, evidence quality and transferability limits"
+      ],
+      "Case narratives remain to be populated from the supplied reports."
+    ],
+    [
+      "Initiatives",
+      [
+        "FINEST: locate within future operating concepts; preserve source-dated status.",
+        "EXODUS: the supplied intermediate report leaves substantive coverage for later completion."
+      ],
+      "Initiative existence is not evidence of a demonstrated workforce effect."
+    ],
+    [
+      "Technology records",
+      [
+        "Function and task affected",
+        "Human responsibility and degraded-mode behaviour",
+        "Training implications and source-reported maturity"
+      ],
+      "Technology descriptions should connect to tasks before drawing conclusions about competence or staffing."
+    ],
+    [
+      "Model and data records",
+      [
+        "Final draft: supply–demand projection to 2036.",
+        "Intermediate report: earlier outlook to 2040.",
+        "Keep coverage, granularity, units, assumptions and version alongside every result."
+      ],
+      "Do not combine the two model versions into one continuous forecast."
+    ]
+  ],
+  "steps": [
+    {
+      "id": "1.6",
+      "label": "Pipeline",
+      "q": "Why might more intake fail to produce more qualified ATCOs?",
+      "body": "Unit training needs instructor time, assessment and suitable operational opportunities. These resources can constrain throughput.",
+      "rel": "Proposed mechanism"
+    },
+    {
+      "id": "2.6",
+      "label": "Shortage",
+      "q": "How does this affect the supply outlook?",
+      "body": "Intake enters a training process with duration and success assumptions. Constrained progression can delay workforce replenishment.",
+      "rel": "Model interpretation"
+    },
+    {
+      "id": "3.4",
+      "label": "Solutions",
+      "q": "Which responses address the bottleneck?",
+      "body": "Examine instructor capacity, training preparation and scheduling together. Increasing intake alone may leave the constraint in place.",
+      "rel": "Illustrative intervention portfolio"
+    },
+    {
+      "id": "4.6",
+      "label": "Future ATCO",
+      "q": "What changes when training or recognition is redesigned?",
+      "body": "Identify which competence can transfer and which system or operating-environment differences still need training and assessment.",
+      "rel": "Workshop proposal"
+    }
+  ]
+}

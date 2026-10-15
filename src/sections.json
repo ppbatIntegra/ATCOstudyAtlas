@@ -1,0 +1,256 @@
+{
+  "missions": {
+    "title": "Missions",
+    "icon": "flag",
+    "intro": "The study connects four objectives across the ATCO workforce, training and licensing system.",
+    "items": [
+      [
+        "Understanding shortages",
+        "Explain the drivers of workforce imbalance and explore how supply and demand may evolve."
+      ],
+      [
+        "Taking stock of existing practices",
+        "Understand how recruitment, training, licensing and operational deployment work across different settings."
+      ],
+      [
+        "Looking for best practices and solutions",
+        "Examine reported practices and potential measures, their prerequisites and their relevance to different actors."
+      ],
+      [
+        "Future-proofing the framework",
+        "Explore how changing operations and automation could affect tasks, competence, training and licensing."
+      ]
+    ]
+  },
+  "expeditions": {
+    "title": "Our expeditions",
+    "icon": "footprints",
+    "intro": "Follow the investigations that connect the study’s questions to its evidence and outputs.",
+    "items": [
+      [
+        "Exploring the data",
+        "Data sources, indicator definitions, historical trends and analytical limitations."
+      ],
+      [
+        "Listening to operational experience",
+        "Interviews and the survey: what was asked, who contributed and how the evidence was interpreted."
+      ],
+      [
+        "Modelling workforce supply and demand",
+        "Model development, assumptions, scenarios and sensitivity analysis."
+      ],
+      [
+        "Investigating challenges and solutions",
+        "From reported constraints and their causes to candidate measures and prioritisation."
+      ],
+      [
+        "Exploring future competence and licensing",
+        "ATCO task analysis, automation, L.O.A.T., P/A/S/I/N and the proposed CBL framework."
+      ]
+    ]
+  },
+  "artefacts": {
+    "title": "Artefacts",
+    "icon": "shapes",
+    "intro": "The tools and conceptual frameworks developed to help the community understand and work with the study.",
+    "items": [
+      [
+        "The ATCO pipeline",
+        "A framework linking planning, hiring, training, qualification, deployment and operational feedback."
+      ],
+      [
+        "The supply–demand model",
+        "A tool for exploring workforce requirements, supply and conditional projections."
+      ],
+      [
+        "The challenges and solutions catalogue",
+        "An organised collection of constraints and responses, with ANSP, governance and technical perspectives."
+      ],
+      [
+        "The proposed competence and licensing framework",
+        "Task, automation and competence concepts supporting the exploration of future licensing options."
+      ],
+      [
+        "The Knowledge Atlas",
+        "Connected explanations, tools, evidence and publications, brought together in one place."
+      ]
+    ],
+    "note": "The common expected baseline remains a possible addition to the catalogue. Publication and usage details for each tool will be established in the full Atlas."
+  },
+  "discoveries": {
+    "title": "Discoveries and directions",
+    "icon": "signpost",
+    "intro": "Explore findings, their implications and recommendations through the responsibilities of different audiences.",
+    "items": [
+      [
+        "For the European Commission and EASA",
+        "European policy, regulatory development and enabling conditions, with their respective responsibilities made explicit."
+      ],
+      [
+        "For ANSP executives",
+        "Workforce planning, training capacity, deployment and implementation choices."
+      ],
+      [
+        "For NSAs and NCAs",
+        "Oversight, approval, consistency and the practical implications of proposed changes."
+      ],
+      [
+        "For ATCOs and training and licensing professionals",
+        "Training practice, assessment, competence, career development and changing operational roles."
+      ]
+    ],
+    "note": "A central study finding: unit training constrains the conversion of recruitment into qualified controllers. Responses need to connect instructor resources, progression and operational demand."
+  },
+  "library": {
+    "title": "Atlas Library",
+    "icon": "library",
+    "intro": "The publications and supporting material behind the Atlas, with clear versions and access conditions.",
+    "items": [
+      [
+        "Reports",
+        "The final report and earlier study reports, identified by their publication status and version."
+      ],
+      [
+        "Data and analytical outputs",
+        "Data tables, model results, charts and supporting methodological material."
+      ],
+      [
+        "Consultation material",
+        "The survey, summaries of results and appropriately anonymised interview synthesis."
+      ],
+      [
+        "Reference material",
+        "Supporting publications and material used in the study."
+      ],
+      [
+        "Presentations",
+        "Slides presented at public meetings and study events."
+      ]
+    ],
+    "note": "Interview summaries are not intended for publication. The Atlas can refer to consultation evidence and publish an appropriate anonymised synthesis."
+  },
+  "encyclopaedia": {
+    "title": "Encyclopaedia",
+    "icon": "book-open",
+    "intro": "Shared entries explain the concepts and context used throughout the Atlas.",
+    "items": [
+      [
+        "Concepts and indicators",
+        "Definitions, units, scope and distinctions between related terms."
+      ],
+      [
+        "Regulation and policy",
+        "Relevant instruments and provisions, their status and their relationship to proposals."
+      ],
+      [
+        "Stakeholders",
+        "Roles, responsibilities and implementation dependencies."
+      ],
+      [
+        "Evidence and methods",
+        "Data provenance, model assumptions and the limits of particular findings."
+      ],
+      [
+        "Cases, initiatives and technologies",
+        "Operational examples, source-dated developments and technical functions."
+      ]
+    ],
+    "note": "Every pathway can link to the same reference entry. Detailed regulatory content will require verification before publication."
+  },
+  "pipeline": {
+    "title": "The ATCO Pipeline",
+    "icon": "workflow",
+    "intro": "Follow the complete workforce management cycle and see how its stages depend on one another.",
+    "items": [
+      [
+        "Plan and attract",
+        "Workforce planning, working conditions, recruitment and selection."
+      ],
+      [
+        "Train and qualify",
+        "Initial training, unit training, assessment, licensing and sector qualifications."
+      ],
+      [
+        "Deploy and sustain",
+        "Rostering, operational work, competence maintenance, retention and career transitions."
+      ],
+      [
+        "Learn and replan",
+        "Use operational experience and performance analysis to improve the next cycle."
+      ]
+    ],
+    "note": "The pipeline is both an artefact to explore and a pathway connecting explanations across the Atlas."
+  },
+  "shortage": {
+    "title": "Understanding the ATCO Shortage",
+    "icon": "chart-no-axes-combined",
+    "intro": "Move from defining a shortage to reading the evidence and understanding conditional projections.",
+    "items": [
+      [
+        "Define the question",
+        "Distinguish workforce numbers, deployability and the capacity that can be delivered."
+      ],
+      [
+        "Read the evidence",
+        "Examine workforce, traffic, operational hours, productivity and delay indicators."
+      ],
+      [
+        "Understand the model",
+        "Explore how demand, training inflows, retirements and attrition affect the gap."
+      ],
+      [
+        "Explore uncertainty",
+        "Compare scenarios and sensitivities while keeping assumptions and model versions visible."
+      ]
+    ],
+    "note": "The final draft’s outlook to 2036 and the intermediate report’s outlook to 2040 are separate model versions."
+  },
+  "solutions": {
+    "title": "Challenges & Solutions",
+    "icon": "puzzle",
+    "intro": "Connect a reported problem to possible responses, their dependencies and the actors who could implement them.",
+    "items": [
+      [
+        "Understand the constraint",
+        "Examine where a problem arises and the evidence supporting its explanation."
+      ],
+      [
+        "Inspect possible responses",
+        "Explore measures affecting planning, hiring, training, licensing and operations."
+      ],
+      [
+        "Assess applicability",
+        "Consider prerequisites, feasibility, time to effect and the limits of transferability."
+      ],
+      [
+        "Build a coordinated response",
+        "Connect complementary measures and identify responsibilities and monitoring needs."
+      ]
+    ],
+    "note": "Reported practices and future proposals retain their source status. A practice’s inclusion in the catalogue does not itself demonstrate its effectiveness."
+  },
+  "future": {
+    "title": "The Future ATCO",
+    "icon": "telescope",
+    "intro": "Follow the reasoning from changing operations to the tasks, competence and recognition they may require.",
+    "items": [
+      [
+        "Operations and technology",
+        "Explore service concepts, technical systems, decision support and automation."
+      ],
+      [
+        "Tasks and human roles",
+        "Examine what controllers perform, approve, supervise or intervene in, and what may no longer be licence-critical."
+      ],
+      [
+        "Competence and learning",
+        "Connect core, technical-system and operational-environment competence to training and assessment."
+      ],
+      [
+        "Licensing and transition",
+        "Explore proposed recognition options, transferability, delta training and the evidence needed for change."
+      ]
+    ],
+    "note": "The competence and licensing concepts are proposals for exploration, with validation and implementation questions still to resolve."
+  }
+}
