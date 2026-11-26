@@ -1,0 +1,79 @@
+﻿Solution ID,Score for importance,IMPORTANCE,Time horizon,Control over the solution,FEASIBILITY,Prioritised?
+T-SP.BP.1,11,Medium,Medium,Internal,High,Yes
+T-SP.BP.2,6,Low,Medium,Internal,High,No
+T-SP.BP.3,5,Low,Medium,Internal,High,No
+T-SP.BP.4,5,Low,Medium,Internal,High,No
+T-SP.BP.5,5,Low,Medium,Internal,High,No
+T-SP.FP.1,11,Medium,Medium,Internal + Technology,Medium,Yes
+T-SP.FP.2,11,Medium,Medium,Internal,High,Yes
+T-SP.FP.3,5,Low,Medium,Internal + Technology,Medium,No
+H-WC.BP.1,3,Low,Short,Internal,High,No
+H-WC.BP.2,8,Medium,Short,Internal,High,Yes
+H-WC.BP.3,10,Medium,Medium,Internal + External,Low,No
+H-WC.BP.4,4,Low,Medium,Internal,High,No
+H-WC.BP.5,1,Low,Short,Internal,High,No
+H-WC.BP.6,7,Low,Short,Internal + External,Medium,No
+H-WC.FP.1,5,Low,Long,Internal + External,Low,No
+H-WC.FP.2,4,Low,Medium,Internal + Technology,Medium,No
+H-R.BP.1,10,Medium,Medium,Internal,High,Yes
+H-R.BP.2,14,High,Medium,Internal + External,Low,Yes
+H-R.BP.3,5,Low,Medium,Internal,High,No
+H-R.BP.4,17,High,Long,Internal + External,Low,Yes
+H-R.BP.5,10,Medium,Medium,Internal,High,Yes
+H-R.FP.1,10,Medium,Long,Internal,Medium,Yes
+H-R.FP.2,5,Low,Medium,Internal + External,Low,No
+H-S.BP.1,23,High,Medium,Internal,High,Yes
+H-S.BP.2,8,Medium,Medium,Internal,High,Yes
+H-S.BP.3,12,Medium,Medium,Internal,High,Yes
+H-S.BP.4,20,High,Medium,Internal + Technology,Medium,Yes
+H-S.BP.5,12,Medium,Medium,Internal + External,Low,No
+H-S.FP.1,16,High,Medium,Internal + External,Low,Yes
+H-S.FP.2,20,High,Long,Internal + External,Low,Yes
+H-S.FP.3,7,Low,Long,Internal + External,Low,No
+TL-IT.BP.1,7,Low,Medium,Internal,High,No
+TL-IT.BP.2,9,Medium,Medium,Internal,High,Yes
+TL-IT.BP.3,10,Medium,Medium,Internal,High,Yes
+TL-IT.BP.4,7,Low,Medium,Internal + Technology,Medium,No
+TL-IT.BP.5,13,High,Medium,Internal,High,Yes
+TL-IT.FP.1,12,Medium,Medium,Internal + Technology,Medium,Yes
+TL-IT.FP.2,10,Medium,Medium,Internal + External,Low,No
+TL-IT.FP.3,8,Medium,Long,Internal + External,Low,No
+TL-UT.BP.1,17,High,Medium,Internal + External,Low,Yes
+TL-UT.BP.2,5,Low,Short,Internal,High,No
+TL-UT.BP.3,7,Low,Medium,Internal,High,No
+TL-UT.BP.4,6,Low,Short,Internal,High,No
+TL-UT.BP.5,16,High,Medium,Internal,High,Yes
+TL-UT.FP.1,11,Medium,Short,Internal + External,Medium,Yes
+TL-UT.FP.2,17,High,Medium,Internal + External,Low,Yes
+TL-UT.FP.3,10,Medium,Medium,Internal,High,Yes
+TL_ST.BP.1,10,Medium,Short,Internal,High,Yes
+TL_ST.BP.2,6,Low,Medium,Internal,High,No
+TL_ST.BP.3,7,Low,Medium,Internal + External,Low,No
+TL_ST.BP.4,0,Low,Medium,Internal,High,No
+TL_ST.FP.1,5,Low,Long,Internal + External,Low,No
+TL-L.BP.1,6,Low,Medium,Internal + External,Low,No
+TL-L.BP.2,18,High,Long,Internal + External,Low,Yes
+TL-L.BP.3,0,Low,Long,Internal + External,Low,No
+TL-L.BP.4,4,Low,Medium,Internal,High,No
+TL-L.FP.1,18,High,Long,Internal + External + Technology,Low,Yes
+TL-L.FP.2,16,High,Long,Internal + External,Low,Yes
+O-R.BP.1,3,Low,Short,Internal,High,No
+O-R.BP.2,0,Low,Short,Internal,High,No
+O-R.BP.3,13,High,Short,Internal + External,Medium,Yes
+O-R.BP.4,7,Low,Short,Internal,High,No
+O-R.FP.1,4,Low,Medium,Internal + External,Low,No
+O-R.FP.2,7,Low,Medium,Internal + Technology,Medium,No
+O-O.BP.1,8,Medium,Medium,Internal + Technology,Medium,Yes
+O-O.BP.2,13,High,Medium,Internal,High,Yes
+O-O.BP.3,8,Medium,Medium,Internal + Technology,Medium,Yes
+O-O.BP.4,8,Medium,Medium,Internal + External,Low,No
+O-O.BP.5,14,High,Medium,Internal,High,Yes
+O-O.FP.1,15,High,Long,Internal + External + Technology,Low,Yes
+O-O.FP.2,15,High,Long,Internal + External,Low,Yes
+O-O.FP.3,15,High,Long,Internal + External + Technology,Low,Yes
+O-PO.BP.1,7,Low,Medium,Internal,High,No
+O-PO.BP.2,3,Low,Medium,Internal,High,No
+O-PO.BP.3,7,Low,Medium,Internal + Technology,Medium,No
+O-PO.BP.4,7,Low,Medium,Internal,High,No
+O-PO.FP.1,4,Low,Medium,Internal,High,No
+O-PO.FP.2,9,Medium,Long,Internal + External,Low,No

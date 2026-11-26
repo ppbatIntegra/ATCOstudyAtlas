@@ -1,0 +1,9 @@
+﻿Parameter,Value,Notes
+"ATCO demand, 2036","8,557","Baseline productivity, base traffic"
+"ATCO supply, 2036","7,928",Observed recruitment rate maintained
+"ATCO gap, 2036",629,Demand - supply
+Pipeline output,384 /year,Newly endorsed controllers entering OPS
+Training capacity ceiling,ANSP-specific,818 / year in aggregate across the network
+Training duration,ANSP-specific,27 months on a weighted average basis
+Success rate,ANSP-specific,75.3 % on a weighted average basis
+Attrition rate,1.69%,Applied to the operational stock

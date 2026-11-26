@@ -1,0 +1,10 @@
+﻿Variable,-10 %,+10 %,% of gap,Interpretation
+ATCO productivity,+950,−778,+152 % / −124 %,Strongest controllable lever
+Utilisation,+950,−778,+152 % / −124 %,Bounded by safety and rostering
+Maximum staff hours,+950,−778,+152 % / −124 %,Bounded by law and agreements
+Intake,+359,−359,+57 % / −57 %,"Cumulative, lagged"
+Success rate,+359,−359,+57 % / −57 %,"Cumulative, lagged"
+Attrition,−110,+108,−18 % / +17 %,Retention effect
+Retirements,−110,+108,−18 % / +17 %,Retention effect
+Training capacity,-,-,-,Indirect; conditions the above
+Training duration,-,-,-,Indirect; conditions the above

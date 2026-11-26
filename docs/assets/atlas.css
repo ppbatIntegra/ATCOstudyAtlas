@@ -52,3 +52,56 @@ body{margin:0;padding:24px;background:light-dark(#f7fafd,#101e29)}
 #atlas-front-page .atlas-walkthrough h2{font-size:19px;margin-bottom:10px}
 #atlas-front-page .atlas-walkthrough p{color:var(--atlas-secondary);font-size:13px;margin-bottom:12px}
 #atlas-front-page .atlas-walkthrough a{color:var(--atlas-green);text-decoration:underline;text-underline-offset:3px;font-size:14px}
+
+/* Source draft layouts */
+#atlas-front-page .global-nav{display:flex;flex-wrap:wrap;gap:4px 8px;padding:9px 24px;background:var(--atlas-surface);border-bottom:1px solid var(--atlas-line);font-size:12px}
+#atlas-front-page .global-nav a{padding:6px 8px;color:var(--atlas-green);border-radius:6px}
+#atlas-front-page .global-nav a:hover{background:var(--atlas-wash)}
+#atlas-front-page .article{padding:24px 32px 40px;max-width:100%}
+#atlas-front-page .article>h1{margin:9px 0 22px;max-width:920px}
+#atlas-front-page .article .atlas-breadcrumb{margin-bottom:20px}
+#atlas-front-page .home-more{padding:0 32px 32px}
+#atlas-front-page .excerpt{margin:24px 0 0;border-top:1px solid var(--atlas-line);padding:22px 0 8px;scroll-margin-top:16px}
+#atlas-front-page .excerpt>h2,#atlas-front-page .catalogue-area>h2{font-family:Georgia,'Times New Roman',serif;font-size:24px;color:var(--atlas-ink);margin:0 0 8px}
+#atlas-front-page .excerpt h3,#atlas-front-page .catalogue-area h3{font-weight:600;font-size:16px;margin:16px 0 6px}
+#atlas-front-page .excerpt p{font-size:15px;line-height:1.65;max-width:780px;margin:10px 0 14px}
+#atlas-front-page .source-line{color:var(--atlas-secondary);font-size:12px;line-height:1.45;margin:4px 0 13px;max-width:100%;overflow-wrap:anywhere}
+#atlas-front-page .source-line a{font-weight:600;color:var(--atlas-green);text-decoration:underline;text-underline-offset:3px}
+#atlas-front-page .excerpt-list{max-width:790px;padding-left:24px;font-size:14px;margin:9px 0 15px;line-height:1.6}
+#atlas-front-page .excerpt-list li{padding:2px 0}
+#atlas-front-page figure{margin:16px 0 20px;max-width:930px}
+#atlas-front-page figure img{max-width:100%;height:auto;display:block;background:white;border:1px solid var(--atlas-line);border-radius:8px}
+#atlas-front-page figcaption,#atlas-front-page .table-caption{font-size:12px!important;color:var(--atlas-secondary);margin:7px 0 8px!important;line-height:1.5!important}
+#atlas-front-page .table-wrap{margin:14px 0 18px;max-width:100%;overflow-x:auto;border:1px solid var(--atlas-line);border-radius:8px;background:var(--atlas-surface)}
+#atlas-front-page .table-wrap table{border-collapse:collapse;width:100%;font-size:13px;line-height:1.5}
+#atlas-front-page .table-wrap.wide table{min-width:660px}
+#atlas-front-page .table-wrap th,#atlas-front-page .table-wrap td{padding:10px 12px;text-align:left;vertical-align:top;border-bottom:1px solid var(--atlas-line);overflow-wrap:anywhere}
+#atlas-front-page .table-wrap thead th{background:var(--atlas-wash);font-weight:600}
+#atlas-front-page .table-subhead th{background:var(--atlas-wash)}
+#atlas-front-page .table-wrap tbody tr:last-child td{border-bottom:0}
+#atlas-front-page .route-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(220px,100%),1fr));gap:8px}
+#atlas-front-page .route-cards a{display:block;padding:11px 13px;border:1px solid var(--atlas-line);border-radius:8px;background:var(--atlas-surface);color:var(--atlas-green);line-height:1.45;font-size:13px}
+#atlas-front-page .route-cards a:hover{background:var(--atlas-wash)}
+#atlas-front-page .on-page{border:1px solid var(--atlas-line);border-radius:8px;background:var(--atlas-wash);padding:12px 14px;margin:20px 0;font-size:13px}
+#atlas-front-page .on-page div{display:flex;flex-wrap:wrap;gap:7px 14px;margin-top:7px}
+#atlas-front-page .on-page a,#atlas-front-page .excerpt p a,#atlas-front-page .excerpt li a,#atlas-front-page .review-pointer a,#atlas-front-page .record-code{color:var(--atlas-green);text-decoration:underline;text-underline-offset:3px}
+#atlas-front-page .catalogue-area{margin:28px 0 12px;border-top:1px solid var(--atlas-line);padding-top:20px;scroll-margin-top:16px}
+#atlas-front-page .catalogue-record{border:1px solid var(--atlas-line);border-radius:8px;padding:12px 14px;margin:8px 0;background:var(--atlas-surface);scroll-margin-top:16px}
+#atlas-front-page .catalogue-record summary{cursor:pointer;color:var(--atlas-ink);line-height:1.55}
+#atlas-front-page .catalogue-record summary strong{font-weight:600}
+#atlas-front-page .catalogue-record summary .record-code{font-size:12px;display:inline-block;margin-right:12px;text-decoration:none}
+#atlas-front-page .catalogue-record:target{outline:3px solid var(--atlas-green);outline-offset:2px}
+#atlas-front-page .catalogue-record dl{display:grid;grid-template-columns:minmax(100px,26%) 1fr;gap:8px 14px;font-size:13px;margin:12px 0}
+#atlas-front-page .catalogue-record dt{color:var(--atlas-secondary)}
+#atlas-front-page .catalogue-record dd{margin:0;overflow-wrap:anywhere}
+#atlas-front-page .review-pointer{border-left:3px solid var(--atlas-rust);padding:7px 13px;margin:26px 0;font-size:13px;color:var(--atlas-secondary)}
+#atlas-front-page .review-pointer ul{padding-left:18px;margin:5px 0}
+#atlas-front-page .source-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(240px,100%),1fr));gap:10px}
+#atlas-front-page .source-card{border:1px solid var(--atlas-line);padding:12px;border-radius:8px;background:var(--atlas-surface);overflow-wrap:anywhere}
+#atlas-front-page .source-card:target{outline:3px solid var(--atlas-green)}
+#atlas-front-page .source-card h3{margin:4px 0 6px}
+#atlas-front-page .source-card p{font-size:12px;margin:4px 0}
+#atlas-front-page .muted{color:var(--atlas-secondary)}
+#atlas-front-page .atlas-footer a{text-decoration:underline;text-underline-offset:3px}
+#atlas-front-page :focus-visible{outline:3px solid var(--atlas-green);outline-offset:3px}
+@media(max-width:600px){#atlas-front-page .article,#atlas-front-page .home-more{padding-left:16px;padding-right:16px}#atlas-front-page .global-nav{padding:8px 10px;gap:1px 3px}#atlas-front-page .global-nav a{padding:6px}#atlas-front-page .excerpt>h2,#atlas-front-page .catalogue-area>h2{font-size:21px}#atlas-front-page .catalogue-record dl{grid-template-columns:1fr;gap:4px}#atlas-front-page .catalogue-record dd{margin-bottom:7px}}
