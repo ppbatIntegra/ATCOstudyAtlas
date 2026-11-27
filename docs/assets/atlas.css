@@ -105,3 +105,30 @@ body{margin:0;padding:24px;background:light-dark(#f7fafd,#101e29)}
 #atlas-front-page .atlas-footer a{text-decoration:underline;text-underline-offset:3px}
 #atlas-front-page :focus-visible{outline:3px solid var(--atlas-green);outline-offset:3px}
 @media(max-width:600px){#atlas-front-page .article,#atlas-front-page .home-more{padding-left:16px;padding-right:16px}#atlas-front-page .global-nav{padding:8px 10px;gap:1px 3px}#atlas-front-page .global-nav a{padding:6px}#atlas-front-page .excerpt>h2,#atlas-front-page .catalogue-area>h2{font-size:21px}#atlas-front-page .catalogue-record dl{grid-template-columns:1fr;gap:4px}#atlas-front-page .catalogue-record dd{margin-bottom:7px}}
+
+/* Expandable historical analysis and source figures. */
+.content-fold{border:1px solid var(--line,#dce4eb);border-radius:12px;margin:1.2rem 0;background:var(--surface,#fff);scroll-margin-top:1rem;overflow:hidden}
+.content-fold>summary{padding:1.2rem 1.4rem;cursor:pointer;color:var(--ink,#152f44);font-weight:700}
+.content-fold>summary h2{display:inline;font-size:1.15rem;line-height:1.45;margin:0 0 0 .3rem}
+.content-fold[open]>summary{border-bottom:1px solid var(--line,#dce4eb)}
+.fold-body{padding:1.2rem 1.4rem}
+.fold-body p,.fold-body ul{line-height:1.7}
+.fold-body figure{margin:1.5rem 0}
+.fold-body img{display:block;width:100%;height:auto;background:white;border-radius:5px}
+.fold-body figcaption{font-size:.875rem;line-height:1.5;color:var(--muted,#526678);margin-top:.7rem}
+.figure-image{display:block;background:white;border-radius:6px}
+.figure-image:focus-visible{outline:3px solid #0062a7;outline-offset:4px}
+.figure-zoom{display:block;font-size:.8rem;margin-top:.35rem}
+.equation{padding:1rem;border-left:3px solid #0062a7;background:rgba(0,98,167,.05);font-weight:600;overflow-wrap:anywhere}
+.section-lead{font-size:1.1rem;line-height:1.7}
+.pathway-group{margin:1.7rem 0}
+.pathway-group>h2{font-size:1.35rem;margin-bottom:.45rem}
+.pathway-group>p{color:var(--muted,#526678);margin-top:0}
+@media(prefers-color-scheme:dark){.content-fold{background:#152332;border-color:#35495a}.content-fold>summary{color:#e8eff6}.content-fold[open]>summary{border-color:#35495a}.fold-body figcaption{color:#b9c8d5}.equation{background:rgba(101,179,230,.09)}}
+@media(max-width:540px){.content-fold>summary,.fold-body{padding:1rem}.content-fold>summary h2{font-size:1rem}.equation{font-size:.9rem}}
+
+#atlas-front-page .home-appreciation{display:flex;align-items:center;justify-content:space-between;gap:24px;margin-top:26px;padding:20px;border:1px solid var(--atlas-line);border-left:3px solid var(--atlas-green);border-radius:var(--atlas-radius);background:var(--atlas-surface)}
+#atlas-front-page .home-appreciation h2{font-family:inherit;font-size:18px;font-weight:500;line-height:1.4}
+#atlas-front-page .home-appreciation p{margin-top:6px;font-size:16px;line-height:1.6;color:var(--atlas-secondary);max-width:620px}
+#atlas-front-page .home-appreciation>a{flex-shrink:0;max-width:230px;font-size:16px;line-height:1.5;text-decoration:underline;text-underline-offset:3px}
+@media(max-width:780px){#atlas-front-page .home-appreciation{align-items:flex-start;flex-direction:column;gap:12px}}
